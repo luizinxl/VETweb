@@ -604,4 +604,62 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     );
   }
+
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // 16. BARRA DE PROGRESSO DE SCROLL ULTRA-SUAVE
+  // ══════════════════════════════════════════════════════════════════════════
+  const progressBar = document.getElementById('scroll-progress');
+  if (progressBar) {
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = scrollPercent + '%';
+    }, { passive: true });
+  }
+
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // 17. SPOTLIGHT DINÂMICO NOS CARDS (Tracking do cursor em coordenadas locais)
+  // ══════════════════════════════════════════════════════════════════════════
+  document.querySelectorAll('.card, .feature-card, .service-item, .blog-card, .mvv-card, .review-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // 18. FLOATING WHATSAPP BUTTON — Física Magnética e Hover Reativo
+  // ══════════════════════════════════════════════════════════════════════════
+  const waFab = document.querySelector('.floating-wa-btn');
+  if (waFab) {
+    waFab.addEventListener('mousemove', e => {
+      const r = waFab.getBoundingClientRect();
+      const x = e.clientX - (r.left + r.width / 2);
+      const y = e.clientY - (r.top + r.height / 2);
+      gsap.to(waFab, {
+        x: x * 0.3,
+        y: y * 0.3,
+        scale: 1.08,
+        duration: 0.4,
+        ease: 'power2.out',
+      });
+    });
+
+    waFab.addEventListener('mouseleave', () => {
+      gsap.to(waFab, {
+        x: 0,
+        y: 0,
+        scale: 1,
+        duration: 0.8,
+        ease: 'elastic.out(1, 0.4)',
+      });
+    });
+  }
 });

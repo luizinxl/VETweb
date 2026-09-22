@@ -14,12 +14,21 @@
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
+  <!-- Barra de Progresso Superior -->
+  <div id="scroll-progress"></div>
+
+  <!-- Textura Analógica Noise (Anti-Digital Slop) -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
   <div class="ambient-background" aria-hidden="true"></div>
 
-  <!-- Topbar: Emergência -->
+  <!-- Topbar: Emergência com Living Beacon -->
   <div class="topbar gs-reveal">
     <div class="container topbar-container">
-      <p><i class="ph-fill ph-warning-circle"></i> Emergência 24h: <strong>(11) 99999-9999</strong></p>
+      <p>
+        <span class="live-beacon"><span class="beacon-dot"></span><span class="beacon-ring"></span></span>
+        Emergência 24h: <strong>(11) 99999-9999</strong> | Plantão veterinário ativo
+      </p>
     </div>
   </div>
 
@@ -43,6 +52,11 @@
 
   <main>
     <section class="hero">
+      <!-- Orbes de Luz Ambiente Flutuantes -->
+      <div class="hero-ambient-orbs" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+      </div>
       <div class="container hero-container">
         <div class="hero-content gs-reveal">
           <h1 class="h1">Cuidado veterinário com carinho, técnica e confiança.</h1>
@@ -216,10 +230,16 @@
       <div class="footer-social">
         <a href="#" class="social-ico"><i class="ph-fill ph-instagram-logo"></i></a>
         <a href="#" class="social-ico"><i class="ph-fill ph-facebook-logo"></i></a>
-        <a href="#" class="social-ico"><i class="ph-fill ph-whatsapp-logo"></i></a>
       </div>
     </div>
   </footer>
+
+  <!-- Floating WhatsApp Hub (FAB) com Micro-interações -->
+  <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="floating-wa-btn" aria-label="Fale conosco no WhatsApp">
+    <span class="wa-beacon"></span>
+    <i class="ph-fill ph-whatsapp-logo" style="font-size: 1.4rem;"></i>
+    <span>Plantão WhatsApp</span>
+  </a>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
