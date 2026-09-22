@@ -125,16 +125,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ══════════════════════════════════════════════════════════════════════════
-  // 2. CURSOR PERSONALIZADO — pata que segue o mouse com delay elástico
+  // 2. CURSOR PERSONALIZADO — Pata seguidora suave (sem esconder cursor nativo)
   // ══════════════════════════════════════════════════════════════════════════
   const cursor = document.createElement('div');
   cursor.id = 'vet-cursor';
   cursor.innerHTML = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-    <ellipse cx="12" cy="15" rx="5.5" ry="4.5" fill="#14b8a6" opacity="0.9"/>
-    <ellipse cx="7" cy="9.5" rx="2.5" ry="2" fill="#14b8a6" opacity="0.9"/>
-    <ellipse cx="17" cy="9.5" rx="2.5" ry="2" fill="#14b8a6" opacity="0.9"/>
-    <ellipse cx="4.5" cy="13" rx="2" ry="1.6" fill="#14b8a6" opacity="0.9"/>
-    <ellipse cx="19.5" cy="13" rx="2" ry="1.6" fill="#14b8a6" opacity="0.9"/>
+    <ellipse cx="12" cy="15" rx="5.5" ry="4.5" fill="#14b8a6" opacity="0.85"/>
+    <ellipse cx="7" cy="9.5" rx="2.5" ry="2" fill="#14b8a6" opacity="0.85"/>
+    <ellipse cx="17" cy="9.5" rx="2.5" ry="2" fill="#14b8a6" opacity="0.85"/>
+    <ellipse cx="4.5" cy="13" rx="2" ry="1.6" fill="#14b8a6" opacity="0.85"/>
+    <ellipse cx="19.5" cy="13" rx="2" ry="1.6" fill="#14b8a6" opacity="0.85"/>
   </svg>`;
   cursor.style.cssText = `
     position: fixed; top: 0; left: 0;
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     transform: translate(-50%, -50%);
     opacity: 0; transition: opacity 0.3s;
     mix-blend-mode: multiply;
-    filter: drop-shadow(0 2px 6px rgba(20,184,166,0.5));
+    filter: drop-shadow(0 2px 6px rgba(20,184,166,0.4));
   `;
   document.body.appendChild(cursor);
 
@@ -154,110 +154,112 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!cursorVisible) {
       cursorVisible = true;
       cursor.style.opacity = '1';
-      // Só esconde o cursor nativo após o primeiro movimento
-      // para não sumir o mouse ao carregar a página
-      document.documentElement.style.cursor = 'none';
-      document.body.style.cursor = 'none';
     }
   });
 
-  // Restaura cursor nativo se o mouse sair da janela
   document.addEventListener('mouseleave', () => {
-    document.documentElement.style.cursor = '';
-    document.body.style.cursor = '';
     cursor.style.opacity = '0';
     cursorVisible = false;
   });
   document.addEventListener('mouseenter', () => {
-    if (cursorVisible) {
-      document.documentElement.style.cursor = 'none';
-      document.body.style.cursor = 'none';
-      cursor.style.opacity = '1';
-    }
+    if (cursorVisible) cursor.style.opacity = '1';
   });
 
   function tickCursor() {
-    cx2 += (mx - cx2) * 0.12;
-    cy2 += (my - cy2) * 0.12;
+    cx2 += (mx - cx2) * 0.14;
+    cy2 += (my - cy2) * 0.14;
     cursor.style.left = cx2 + 'px';
     cursor.style.top  = cy2 + 'px';
-
-    // Escala ao passar em botões/links
     requestAnimationFrame(tickCursor);
   }
   tickCursor();
 
-  // Efeito de escala em elementos interativos
+  // Efeito de escala ao passar em elementos interativos
   document.querySelectorAll('a, button, .card').forEach(el => {
     el.addEventListener('mouseenter', () => {
-      gsap.to(cursor, { scale: 1.8, duration: 0.3, ease: 'power2.out' });
+      gsap.to(cursor, { scale: 1.6, duration: 0.25, ease: 'power2.out' });
     });
     el.addEventListener('mouseleave', () => {
-      gsap.to(cursor, { scale: 1, duration: 0.4, ease: 'elastic.out(1, 0.5)' });
+      gsap.to(cursor, { scale: 1, duration: 0.35, ease: 'elastic.out(1, 0.5)' });
     });
   });
 
 
   // ══════════════════════════════════════════════════════════════════════════
-  // 3. CINEMATIC TEXT SPLIT — Headline do Hero letra por letra
+  // 3. COREOGRAFIA DE ENTRADA & LETRA A LETRA KINÉTICO (HERO H1)
   // ══════════════════════════════════════════════════════════════════════════
+  // Topbar e Navbar entram ao carregar
+  gsap.fromTo('.topbar', 
+    { y: '-100%', opacity: 0 },
+    { y: '0%', opacity: 1, duration: 0.65, ease: 'power3.out' }
+  );
+  gsap.fromTo('.nav',
+    { y: -35, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: 0.1 }
+  );
+
   const h1 = document.querySelector('.hero-content .h1');
   if (h1) {
-    const originalText = h1.textContent;
-    const words = originalText.split(' ');
-    h1.innerHTML = words
-      .map(word => `<span class="split-word" style="display:inline-block; overflow:hidden; padding-bottom:4px">
-        <span class="split-inner" style="display:inline-block">${word}</span>
-      </span> `)
-      .join('');
+    const originalText = h1.textContent.trim();
+    const words = originalText.split(/\s+/);
+    
+    // Split em letras individuais agrupadas em palavras (evita quebra errada de linha)
+    h1.innerHTML = words.map(word => {
+      const chars = word.split('').map(char => 
+        `<span class="char-span">${char}</span>`
+      ).join('');
+      return `<span class="word-mask">${chars}</span>`;
+    }).join(' ');
 
+    // Letras entram em cascata cinética com rotação 3D e foco
     gsap.fromTo(
-      h1.querySelectorAll('.split-inner'),
-      { y: '100%', rotateX: 40, opacity: 0 },
+      h1.querySelectorAll('.char-span'),
+      { y: '130%', rotateX: -70, opacity: 0, filter: 'blur(4px)' },
       {
         y: '0%',
         rotateX: 0,
         opacity: 1,
-        duration: 0.75,
+        filter: 'blur(0px)',
+        duration: 0.7,
         ease: 'power3.out',
-        stagger: 0.055,
-        delay: 0.3,
+        stagger: 0.022,
+        delay: 0.25,
       }
     );
 
-    // Subheadline (t1) entra depois
+    // Subheadline (t1) entra depois com tracking suave
     const sub = document.querySelector('.hero-content .t1');
     if (sub) {
       gsap.fromTo(sub,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 1.1 }
+        { opacity: 0, y: 25, filter: 'blur(4px)' },
+        { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.85, ease: 'power3.out', delay: 0.85 }
       );
     }
 
-    // Hero actions
+    // Hero actions (botões com mola)
     const actions = document.querySelector('.hero-actions');
     if (actions) {
       gsap.fromTo(actions,
-        { opacity: 0, y: 16 },
-        { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', delay: 1.4 }
+        { opacity: 0, y: 20, scale: 0.95 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.75, ease: 'back.out(1.6)', delay: 1.1 }
       );
     }
 
-    // Badge flutuante
+    // Badge flutuante (queda elástica)
     const badge = document.querySelector('.hero-badge');
     if (badge) {
       gsap.fromTo(badge,
-        { opacity: 0, x: -30, scale: 0.9 },
-        { opacity: 1, x: 0, scale: 1, duration: 0.9, ease: 'back.out(1.4)', delay: 1.7 }
+        { opacity: 0, y: 30, scale: 0.8 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'back.out(2)', delay: 1.35 }
       );
-      // Loop flutuante
+      // Loop flutuante suave
       gsap.to(badge, {
-        y: -8,
-        duration: 2.5,
+        y: -7,
+        duration: 2.8,
         ease: 'sine.inOut',
         yoyo: true,
         repeat: -1,
-        delay: 2.4
+        delay: 2.2
       });
     }
   }
@@ -282,71 +284,99 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ══════════════════════════════════════════════════════════════════════════
-  // 5. SCROLL-REVEAL CINEMATOGRÁFICO — seções com perspectiva e stagger
+  // 5. SCROLL-REVEAL CINEMATOGRÁFICO — Seções, containers e mídias
   // ══════════════════════════════════════════════════════════════════════════
   document.querySelectorAll('.gs-reveal').forEach(el => {
     gsap.fromTo(el,
-      { opacity: 0, y: 48, filter: 'blur(4px)' },
+      { opacity: 0, y: 50, scale: 0.97, filter: 'blur(6px)' },
       {
-        opacity: 1, y: 0, filter: 'blur(0px)',
+        opacity: 1, y: 0, scale: 1, filter: 'blur(0px)',
         duration: 0.9,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: el,
           start: 'top 88%',
+          once: true,
         }
       }
     );
   });
 
-
-  // ══════════════════════════════════════════════════════════════════════════
-  // 6. GRID CARDS — entrada em cascata com efeito 3D tilt on hover
-  // ══════════════════════════════════════════════════════════════════════════
-  document.querySelectorAll(
-    '.features-grid, .gallery-carousel, .service-list-grid, .mvv-grid, .team-grid, .blog-grid, .faq-grid'
-  ).forEach(container => {
-    const items = container.querySelectorAll('.gs-stagger, .feature-card, .service-item, .mvv-card, .team-card, .blog-card, .faq-item');
-    if (!items.length) return;
-
-    gsap.fromTo(items,
-      { opacity: 0, y: 50, scale: 0.95, rotateX: 8 },
+  // Revelação de Mídias e Fotos com Expansão de Escala e Desfoque
+  document.querySelectorAll('.details-img-element, .banner-img-element, .gallery-img-element').forEach(img => {
+    gsap.fromTo(img,
+      { opacity: 0, scale: 0.9, y: 45, filter: 'blur(8px)' },
       {
-        opacity: 1, y: 0, scale: 1, rotateX: 0,
-        duration: 0.65,
+        opacity: 1, scale: 1, y: 0, filter: 'blur(0px)',
+        duration: 1.0,
         ease: 'power3.out',
-        stagger: { amount: 0.5, from: 'start' },
-        scrollTrigger: { trigger: container, start: 'top 82%' }
+        scrollTrigger: { trigger: img, start: 'top 86%', once: true }
       }
     );
   });
 
-  // 3D tilt nas feature-cards ao hover
-  document.querySelectorAll('.feature-card, .mvv-card, .team-card').forEach(card => {
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // 6. CARDS — Entrada 3D em cascata sincronizada com física de mola
+  // ══════════════════════════════════════════════════════════════════════════
+  document.querySelectorAll(
+    '.features-grid, .gallery-carousel, .service-list-grid, .mvv-grid, .team-grid, .blog-grid, .faq-grid, .contact-grid'
+  ).forEach(container => {
+    const items = container.querySelectorAll('.card, .feature-card, .service-item, .mvv-card, .team-card, .blog-card, .faq-item, .contact-info-card');
+    if (!items.length) return;
+
+    gsap.fromTo(items,
+      { opacity: 0, y: 75, scale: 0.9, rotateX: 14, filter: 'blur(8px)' },
+      {
+        opacity: 1, y: 0, scale: 1, rotateX: 0, filter: 'blur(0px)',
+        duration: 0.85,
+        ease: 'power3.out',
+        stagger: { amount: 0.45, from: 'start' },
+        scrollTrigger: { trigger: container, start: 'top 84%', once: true }
+      }
+    );
+  });
+
+  // 3D Parallax Tilt e Elevação em profundidade Z nos cards
+  document.querySelectorAll('.card, .feature-card, .mvv-card, .team-card, .blog-card, .service-item, .contact-info-card').forEach(card => {
     card.style.transformStyle = 'preserve-3d';
-    card.style.perspective = '600px';
+    card.style.perspective = '1000px';
 
     card.addEventListener('mousemove', e => {
       const r = card.getBoundingClientRect();
       const xPct = ((e.clientX - r.left) / r.width - 0.5) * 2;
       const yPct = ((e.clientY - r.top) / r.height - 0.5) * 2;
+      
       gsap.to(card, {
-        rotateY: xPct * 8,
-        rotateX: -yPct * 6,
+        rotateY: xPct * 9,
+        rotateX: -yPct * 7,
         scale: 1.03,
-        duration: 0.4,
+        duration: 0.35,
         ease: 'power2.out',
-        transformPerspective: 600,
+        transformPerspective: 1000,
       });
+
+      const ico = card.querySelector('.card-ico');
+      const h3 = card.querySelector('.h3');
+      const img = card.querySelector('.card-img');
+      if (ico) gsap.to(ico, { z: 30, duration: 0.35, ease: 'power2.out' });
+      if (h3) gsap.to(h3, { z: 20, duration: 0.35, ease: 'power2.out' });
+      if (img) gsap.to(img, { scale: 1.06, duration: 0.45, ease: 'power2.out' });
     });
 
     card.addEventListener('mouseleave', () => {
       gsap.to(card, {
         rotateY: 0, rotateX: 0, scale: 1,
-        duration: 0.7,
+        duration: 0.8,
         ease: 'elastic.out(1, 0.4)',
-        transformPerspective: 600,
+        transformPerspective: 1000,
       });
+      const ico = card.querySelector('.card-ico');
+      const h3 = card.querySelector('.h3');
+      const img = card.querySelector('.card-img');
+      if (ico) gsap.to(ico, { z: 0, duration: 0.5, ease: 'power2.out' });
+      if (h3) gsap.to(h3, { z: 0, duration: 0.5, ease: 'power2.out' });
+      if (img) gsap.to(img, { scale: 1, duration: 0.5, ease: 'power2.out' });
     });
   });
 
@@ -495,25 +525,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ══════════════════════════════════════════════════════════════════════════
-  // 11. SECTION HEADINGS — H2 Split por palavra com clip reveal
+  // 11. HEADINGS & LETRAS — Revelação por palavra com máscara de clip e 3D
   // ══════════════════════════════════════════════════════════════════════════
-  document.querySelectorAll('.section-header .h2, .intro-left .h2, .details-content .h2, .banner-content .h2').forEach(el => {
-    const words = el.textContent.split(' ');
+  document.querySelectorAll(
+    '.section-header .h2, .intro-left .h2, .details-content .h2, .banner-content .h2, .page-hero .h1, .section-title, .faq-header .h2, .service-hero h1, .contact-hero h1, .blog-hero h1'
+  ).forEach(el => {
+    if (el.closest('.hero-content')) return; // H1 do hero já tem animação letra por letra
+    const words = el.textContent.trim().split(/\s+/);
     el.innerHTML = words
-      .map(w => `<span style="display:inline-block; overflow:hidden; padding-bottom:2px">
-                   <span class="h2-word" style="display:inline-block">${w}</span>
-                 </span> `)
+      .map(w => `<span class="word-mask"><span class="word-inner">${w}</span></span> `)
       .join('');
 
     gsap.fromTo(
-      el.querySelectorAll('.h2-word'),
-      { y: '100%', opacity: 0 },
+      el.querySelectorAll('.word-inner'),
+      { y: '125%', rotateX: -55, opacity: 0, filter: 'blur(4px)' },
       {
-        y: '0%', opacity: 1,
-        duration: 0.7,
+        y: '0%', rotateX: 0, opacity: 1, filter: 'blur(0px)',
+        duration: 0.8,
         ease: 'power3.out',
-        stagger: 0.06,
-        scrollTrigger: { trigger: el, start: 'top 86%' }
+        stagger: 0.045,
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
       }
     );
   });

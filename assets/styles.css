@@ -711,35 +711,52 @@ a { text-decoration: none; color: inherit; }
    Motion System Support Styles
    =================================== */
 
-/* Perspectiva 3D nos cards para o tilt funcionar */
-.feature-card,
-.mvv-card,
-.team-card {
-  transform-style: preserve-3d;
-  will-change: transform;
+/* Suporte para Kinetic Typography (Letras e Palavras) */
+.word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 4px;
+}
+.word-inner,
+.char-span {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+  backface-visibility: hidden;
 }
 
-/* Overflow hidden para sheen não vazar */
+/* Perspectiva 3D profunda nos cards para tilt e elevação em Z */
+.card,
 .feature-card,
-.contact-info-card,
 .mvv-card,
+.team-card,
+.blog-card,
+.service-item,
+.contact-info-card,
 .review-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  will-change: transform, box-shadow;
   position: relative;
   overflow: hidden;
 }
 
-/* Hero h1 — prepara perspectiva para o split 3D */
+/* Elementos internos dos cards com profundidade 3D */
+.card-ico,
+.feature-card .h3,
+.feature-card .card-img,
+.feature-card .lnk {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Hero h1 — prepara perspectiva 3D cinematográfica */
 .hero-content .h1 {
-  perspective: 500px;
+  perspective: 900px;
   transform-style: preserve-3d;
 }
 
-/* Garante que palavras splitadas não quebram layout */
-.split-word { vertical-align: bottom; }
-
-/* Estado inicial oculto para elementos animados.
-   A classe .gsap-ready é adicionada pelo JS APÓS o GSAP carregar,
-   evitando que elementos fiquem invisíveis se o script falhar. */
+/* Estado inicial oculto para elementos animados após GSAP estar pronto */
 body.gsap-ready .gs-reveal,
 body.gsap-ready .gs-stagger {
   opacity: 0;
