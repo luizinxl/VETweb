@@ -1,5 +1,5 @@
 /**
- * VetCare — Motion System
+ * Cimu — Motion System
  * Skill: /animate | Princípios: Intenção > Efeito, Física Intencional, Stagger calculado
  * Stack: GSAP 3 + ScrollTrigger + Canvas (patas ambient) + Web Animations API
  */
@@ -288,9 +288,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // ══════════════════════════════════════════════════════════════════════════
   document.querySelectorAll('.gs-reveal').forEach(el => {
     gsap.fromTo(el,
-      { opacity: 0, y: 50, scale: 0.97, filter: 'blur(6px)' },
+      { opacity: 0, y: 50, scale: 0.97, filter: 'blur(10px) brightness(1.2)' },
       {
-        opacity: 1, y: 0, scale: 1, filter: 'blur(0px)',
+        opacity: 1, y: 0, scale: 1, filter: 'blur(0px) brightness(1)',
         duration: 0.9,
         ease: 'power3.out',
         scrollTrigger: {
@@ -326,9 +326,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!items.length) return;
 
     gsap.fromTo(items,
-      { opacity: 0, y: 75, scale: 0.9, rotateX: 14, filter: 'blur(8px)' },
+      { opacity: 0, y: 75, scale: 0.9, rotateX: 14, filter: 'blur(12px) brightness(1.3)' },
       {
-        opacity: 1, y: 0, scale: 1, rotateX: 0, filter: 'blur(0px)',
+        opacity: 1, y: 0, scale: 1, rotateX: 0, filter: 'blur(0px) brightness(1)',
         duration: 0.85,
         ease: 'power3.out',
         stagger: { amount: 0.45, from: 'start' },

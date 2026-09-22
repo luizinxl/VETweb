@@ -7,7 +7,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Varela+Round&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Varela+Round&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="stylesheet" href="assets/pages.css">
@@ -22,221 +22,367 @@
 
   <div class="ambient-background" aria-hidden="true"></div>
 
-  <!-- Topbar: Emergência com Living Beacon -->
-  <div class="topbar gs-reveal">
-    <div class="container topbar-container">
-      <p>
-        <span class="live-beacon"><span class="beacon-dot"></span><span class="beacon-ring"></span></span>
-        Emergência 24h: <strong>(11) 99999-9999</strong> | Plantão veterinário ativo
-      </p>
-    </div>
-  </div>
-
   <nav class="nav gs-reveal">
     <div class="container nav-container">
       <div class="logo">
-        <i class="ph-fill ph-paw-print logo-icon"></i>
-        <span>VetCare</span>
+        <svg viewBox="0 0 256 256" class="animated-paw logo-icon" style="width: 2.2rem; height: 2.2rem; color: var(--color-primary);">
+          <circle class="paw-toe-1" cx="56" cy="108" r="22" />
+          <circle class="paw-toe-2" cx="100" cy="52" r="22" />
+          <circle class="paw-toe-3" cx="156" cy="52" r="22" />
+          <circle class="paw-toe-4" cx="200" cy="108" r="22" />
+          <path class="paw-pad" d="M128,216 C 80,216 48,188 48,144 C 48,104 76,80 112,76 C 122,74.5 134,74.5 144,76 C 180,80 208,104 208,144 C 208,188 176,216 128,216 Z" />
+        </svg>
+        <span>Cimu</span>
       </div>
       <ul class="nav-links">
         <li><a href="index.html" class="nav-link nav-active">Início</a></li>
+        <li><a href="#" class="nav-link">Loja</a></li>
         <li><a href="servicos.html" class="nav-link">Serviços</a></li>
-        <li><a href="sobre.html" class="nav-link">Sobre</a></li>
-        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="sobre.html" class="nav-link">Sobre nós</a></li>
         <li><a href="contato.html" class="nav-link">Contato</a></li>
-        <li><a href="#" class="nav-link portal-link"><i class="ph-bold ph-user"></i> Portal do Tutor</a></li>
       </ul>
-      <a href="contato.html" class="btn btn-magnetic">Agendar no WhatsApp</a>
+      <div style="display:flex; gap:1rem; align-items:center;">
+        <a href="#" class="nav-link"><i class="ph-bold ph-user" style="font-size:1.5rem; color:var(--color-primary);"></i></a>
+        <a href="contato.html" class="btn btn-magnetic btn-outline" style="padding: 0.5rem 1rem; border-radius: 99px;">
+           <i class="ph-fill ph-phone" style="margin-right: 0.5rem;"></i> +55 (11) 99999-9999
+        </a>
+      </div>
     </div>
   </nav>
 
   <main>
-    <section class="hero">
-      <!-- Video Background -->
-      <video autoplay loop muted playsinline class="hero-bg-video">
+    <!-- Background Fullscreen Video -->
+    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; background: #000;">
+      <!-- Overlay escuro para garantir legibilidade dos textos brancos -->
+      <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); z-index: 1;"></div>
+      <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
         <source src="assets/hero_video.mp4" type="video/mp4">
       </video>
-      <!-- Orbes de Luz Ambiente Flutuantes -->
-      <div class="hero-ambient-orbs" aria-hidden="true">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-      </div>
-      <div class="container hero-container">
-        <div class="hero-content gs-reveal">
-          <h1 class="h1">Cuidado veterinário com carinho, técnica e confiança.</h1>
-          <p class="t1">Nossa equipe está pronta para cuidar do seu melhor amigo com a melhor estrutura e muito acolhimento, desde vacinas até cirurgias complexas.</p>
-          <div class="hero-actions">
-            <a href="contato.html" class="btn btn-magnetic">Agendar Consulta</a>
-            <a href="servicos.html" class="lnk">Conhecer a Clínica <i class="ph-bold ph-arrow-right"></i></a>
+    </div>
+
+    <!-- INITIAL SPACER: 100vh of nothing so they just see the video first -->
+    <section class="hero-spacer" style="width: 100%; height: 100vh; position: relative; z-index: 1; pointer-events: none;"></section>
+
+    <!-- CARDS SECTION: Scrolling over the video with Liquid Glass -->
+    <section class="hero-cards" style="padding: 2rem 0 8rem; position: relative; z-index: 1;">
+      <div class="container gs-reveal" style="display: flex; flex-direction: row; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 4rem;">
+        
+        <!-- Liquid Glass Text Content -->
+        <div class="liquid-glass" style="flex: 1; min-width: 300px; max-width: 650px; padding: 3.5rem; border-radius: 3rem;">
+          <div style="background: rgba(255,255,255,0.2); color: #fff; padding: 0.5rem 1rem; border-radius: 99px; font-weight: 700; margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid rgba(255,255,255,0.4);">
+            <i class="ph-fill ph-paw-print"></i> Guia para Tutores
           </div>
-          <!-- Badge agora é filho do hero-content, sem position:absolute -->
-          <div class="hero-badge">
-            <div class="badge-content">
-              <i class="ph-fill ph-heart"></i>
-              <span class="t3">Atendimento Humanizado</span>
+          <h1 class="h1" style="font-size: clamp(3.2rem, 6vw, 4.8rem); margin-bottom: 1.5rem; color: #fff; text-shadow: 0 4px 12px rgba(0,0,0,0.1);">Cuidado de Excelência,<br><span style="font-family: 'Playfair Display', serif; font-style: italic;">Pets Mais Felizes.</span></h1>
+          <p class="t1" style="max-width: 500px; margin: 0 0 2.5rem 0; color: #f0f0f0; font-weight: 600;">Cuidado profissional, infraestrutura moderna e um sentimento humanizado dedicado aos seus pets.</p>
+          <div class="hero-actions" style="display: flex; gap: 1rem; justify-content: flex-start; flex-wrap: wrap;">
+            <a href="contato.html" class="btn btn-magnetic" style="background: #fff; color: var(--color-primary); box-shadow: 0 8px 24px rgba(0,0,0,0.15);">Agendar Consulta</a>
+            <a href="servicos.html" class="btn btn-magnetic btn-outline" style="background: transparent; border-color: rgba(255,255,255,0.6); color: #fff; box-shadow: none;">Nossos Serviços <i class="ph-bold ph-arrow-right" style="margin-left: 0.5rem;"></i></a>
+          </div>
+        </div>
+        
+        <!-- Liquid Glass Floating Card -->
+        <div class="hero-image" style="flex: 1; min-width: 300px; display: flex; justify-content: flex-end; align-items: flex-end;">
+            <div class="feature-card liquid-glass" style="padding: 2rem 2.5rem; flex-direction: row; gap: 1.5rem; align-items: center; border-radius: 3rem; background: rgba(255, 255, 255, 0.4);">
+              <i class="ph-bold ph-plus" style="color: #ff6b6b; font-size: 3.5rem; filter: drop-shadow(0 2px 8px rgba(255,107,107,0.3));"></i>
+              <div style="text-align: left;">
+                <div class="t3" style="font-weight: 700; color: #fff; margin-bottom: 0.2rem; font-size: 1.3rem;">Emergência 24h</div>
+                <div class="t3" style="color: rgba(255,255,255,0.9); font-size: 1.1rem; font-weight: 600;">+55 (11) 99999-9999</div>
+              </div>
             </div>
+        </div>
+      </div>
+      
+      <!-- Stats bar na base do hero em Liquid Glass -->
+      <div class="container gs-reveal" style="position: relative; margin-top: 4rem;">
+        <div class="feature-card liquid-glass-dark" style="flex-direction: row; justify-content: space-around; flex-wrap: wrap; gap: 2rem; padding: 2.5rem; width: 100%; border-radius: 3rem;">
+          <div style="display:flex; align-items:center; gap: 1rem; text-align: left;">
+            <i class="ph-fill ph-stethoscope" style="font-size: 2.5rem; color: #fff;"></i>
+            <span style="font-weight:700; font-family: var(--font-display); line-height: 1.2; color: #fff;">Veterinários<br>Experientes</span>
+          </div>
+          <div style="display:flex; align-items:center; gap: 1rem; text-align: left;">
+            <i class="ph-fill ph-hospital" style="font-size: 2.5rem; color: #fff;"></i>
+            <span style="font-weight:700; font-family: var(--font-display); line-height: 1.2; color: #fff;">Infraestrutura<br>Moderna</span>
+          </div>
+          <div style="display:flex; align-items:center; gap: 1rem; text-align: left;">
+            <i class="ph-fill ph-heartbeat" style="font-size: 2.5rem; color: #fff;"></i>
+            <span style="font-weight:700; font-family: var(--font-display); line-height: 1.2; color: #fff;">Garantia de<br>Saúde</span>
+          </div>
+          <div style="display:flex; align-items:center; gap: 1rem; text-align: left;">
+            <i class="ph-fill ph-ambulance" style="font-size: 2.5rem; color: #fff;"></i>
+            <span style="font-weight:700; font-family: var(--font-display); line-height: 1.2; color: #fff;">Emergência<br>24/7</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Social Proof Section -->
-    <section class="proof gs-reveal">
-      <div class="container proof-container">
-        <div class="proof-item"><i class="ph-fill ph-check-circle"></i> +5.000 Pets Atendidos</div>
-        <div class="proof-item"><i class="ph-fill ph-star"></i> 4.9/5 Avaliações no Google</div>
-        <div class="proof-item"><i class="ph-fill ph-stethoscope"></i> Especialistas Certificados</div>
-        <div class="proof-item"><i class="ph-fill ph-first-aid"></i> Pronto-Socorro 24h</div>
-      </div>
-    </section>
-
-    <section class="intro gs-reveal">
-      <div class="container intro-container">
-        <div class="intro-left">
-          <h2 class="h2">Uma clínica feita para curar e orientar.</h2>
-        </div>
-        <div class="intro-right">
-          <p class="t2">Acreditamos que a medicina veterinária moderna deve ser transparente. Explicamos cada passo do tratamento para que você, tutor, participe ativamente da saúde do seu pet.</p>
-          <ul class="intro-contact">
-            <li class="t3"><i class="ph-bold ph-map-pin"></i> Av. dos Animais, 123 - Centro</li>
-            <li class="t3"><i class="ph-bold ph-clock"></i> Seg a Sáb: 08h às 20h</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="features gs-reveal">
+    <!-- Content Wrapper for the rest of the site -->
+    <div style="background: var(--color-bg); position: relative; z-index: 2;">
+    <section class="features gs-reveal" style="background-color: var(--color-surface); padding-top: 2rem; padding-bottom: 8rem;">
       <div class="container features-container">
         <div class="features-header section-header">
-          <h2 class="h2 center">Tudo que seu pet precisa</h2>
-          <p class="t2 center">Da prevenção aos cuidados intensivos, oferecemos uma infraestrutura completa.</p>
+          <h2 class="h2 center">Nossos Serviços</h2>
+          <p class="t2 center">Oferecemos cuidado completo e especializado para a saúde e bem-estar do seu pet.</p>
         </div>
         
         <div class="features-grid">
+          <div class="feature-card gs-stagger" style="padding: 1.5rem;">
+            <div class="card-ico"><i class="ph-bold ph-stethoscope"></i></div>
+            <h3 class="h3">Check-up Completo</h3>
+            <p class="t3">Profissionalismo e confiança para uma avaliação completa do seu pet.</p>
+            <a href="#" class="lnk" style="margin-top: 1rem;">Saber Mais <i class="ph-bold ph-arrow-right"></i></a>
+          </div>
+          <div class="feature-card gs-stagger" style="padding: 1.5rem;">
+            <div class="card-ico"><i class="ph-bold ph-syringe"></i></div>
+            <h3 class="h3">Vacinação</h3>
+            <p class="t3">Protocolos vacinais importados e seguros para proteger quem você ama.</p>
+            <a href="#" class="lnk" style="margin-top: 1rem;">Saber Mais <i class="ph-bold ph-arrow-right"></i></a>
+          </div>
+          <div class="feature-card gs-stagger" style="padding: 1.5rem;">
+            <div class="card-ico"><i class="ph-bold ph-tooth"></i></div>
+            <h3 class="h3">Odontologia</h3>
+            <p class="t3">Tratamentos dentários preventivos e limpeza de tártaro profunda.</p>
+            <a href="#" class="lnk" style="margin-top: 1rem;">Saber Mais <i class="ph-bold ph-arrow-right"></i></a>
+          </div>
+          <div class="feature-card gs-stagger" style="padding: 1.5rem;">
+            <div class="card-ico"><i class="ph-bold ph-bandaids"></i></div>
+            <h3 class="h3">Cirurgias</h3>
+            <p class="t3">Bloco cirúrgico de ponta e monitoramento anestésico avançado.</p>
+            <a href="#" class="lnk" style="margin-top: 1rem;">Saber Mais <i class="ph-bold ph-arrow-right"></i></a>
+          </div>
+          <div class="feature-card gs-stagger" style="padding: 1.5rem;">
+            <div class="card-ico"><i class="ph-bold ph-microscope"></i></div>
+            <h3 class="h3">Laboratório Próprio</h3>
+            <p class="t3">Equipamentos modernos para exames rápidos, completos e precisos.</p>
+            <a href="#" class="lnk" style="margin-top: 1rem;">Saber Mais <i class="ph-bold ph-arrow-right"></i></a>
+          </div>
+          <div class="feature-card gs-stagger" style="padding: 1.5rem;">
+            <div class="card-ico"><i class="ph-bold ph-ambulance"></i></div>
+            <h3 class="h3">Emergência 24h</h3>
+            <p class="t3">Atendimento ininterrupto com suporte vital para salvar vidas.</p>
+            <a href="#" class="lnk" style="margin-top: 1rem;">Saber Mais <i class="ph-bold ph-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 4rem;">
+          <a href="servicos.html" class="btn btn-outline" style="border-radius: 99px;">Ver Todos os Serviços <i class="ph-bold ph-arrow-right" style="margin-left: 0.5rem;"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="gs-reveal" style="padding: 4rem 0;">
+      <div class="container">
+        <div class="feature-card" style="flex-direction: row; padding: 4rem; background-color: var(--color-bg); border: none; text-align: left; align-items: center; justify-content: space-between; gap: 4rem;">
+          <div style="flex: 1; position: relative;">
+            <img src="assets/img/husky_cat.jpg" alt="Husky and Cat" style="width: 100%; border-radius: var(--radius-lg); mix-blend-mode: multiply;">
+          </div>
+          <div style="flex: 1;">
+            <div style="background: var(--color-surface); color: var(--color-primary); padding: 0.5rem 1rem; border-radius: 99px; font-weight: 700; margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">
+              <i class="ph-bold ph-shield-check"></i> Por que nos escolher?
+            </div>
+            <h2 class="h2" style="font-size: clamp(2.5rem, 4vw, 3rem); line-height: 1.1;">A saúde do seu pet<br>é nossa prioridade.</h2>
+            <p class="t2" style="margin-bottom: 2rem;">Aliamos compaixão e tecnologia veterinária avançada para oferecer o melhor cuidado para o seu pet.</p>
+            
+            <ul style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem;">
+              <li style="display: flex; align-items: center; gap: 1rem; font-weight: 700; color: var(--color-text);"><i class="ph-fill ph-check-circle" style="color: var(--color-primary); font-size: 1.5rem;"></i> Profissionais Humanizados</li>
+              <li style="display: flex; align-items: center; gap: 1rem; font-weight: 700; color: var(--color-text);"><i class="ph-fill ph-check-circle" style="color: var(--color-primary); font-size: 1.5rem;"></i> Infraestrutura de Ponta</li>
+              <li style="display: flex; align-items: center; gap: 1rem; font-weight: 700; color: var(--color-text);"><i class="ph-fill ph-check-circle" style="color: var(--color-primary); font-size: 1.5rem;"></i> Preços Acessíveis</li>
+              <li style="display: flex; align-items: center; gap: 1rem; font-weight: 700; color: var(--color-text);"><i class="ph-fill ph-check-circle" style="color: var(--color-primary); font-size: 1.5rem;"></i> Confiança de Milhares</li>
+            </ul>
+
+            <div style="display: flex; gap: 1rem;">
+              <div class="feature-card" style="flex: 1; padding: 1.5rem; background: var(--color-surface); border: none;">
+                <i class="ph-fill ph-car" style="color: var(--color-primary); font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                <div style="font-weight: 700; font-family: var(--font-display); font-size: 1.5rem; color: var(--color-primary-dark);">200+</div>
+                <div class="t3">Equipe Ativa</div>
+              </div>
+              <div class="feature-card" style="flex: 1; padding: 1.5rem; background: var(--color-surface); border: none;">
+                <i class="ph-fill ph-star" style="color: var(--color-accent); font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                <div style="font-weight: 700; font-family: var(--font-display); font-size: 1.5rem; color: var(--color-primary-dark);">150+</div>
+                <div class="t3">Especialistas</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Banner -->
+    <section class="gs-reveal" style="padding: 4rem 0;">
+      <div class="container">
+        <div style="background-color: var(--color-primary-dark); border-radius: var(--radius-lg); padding: 3rem 4rem; display: flex; align-items: center; justify-content: space-between; color: white;">
+          <div style="max-width: 50%;">
+            <h2 class="h2" style="color: white; margin-bottom: 1rem;">Pronto para dar o melhor cuidado ao seu pet?</h2>
+            <p style="opacity: 0.8; margin-bottom: 0;">Agende uma consulta hoje mesmo com nossa equipe.</p>
+          </div>
+          <div style="display: flex; gap: 2rem; align-items: center;">
+            <a href="contato.html" class="btn btn-magnetic" style="background-color: var(--color-surface); color: var(--color-primary-dark);">Agendar Consulta <i class="ph-bold ph-arrow-right" style="margin-left: 0.5rem;"></i></a>
+            <img src="https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&q=80&w=200" alt="Dog" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="gs-reveal" style="padding: 6rem 0;">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="h2 center">Como Funciona</h2>
+          <p class="t2 center">Processo simples e eficiente para o bem-estar do seu pet.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;">
+          <div class="feature-card gs-stagger" style="padding: 2rem; border: none;">
+            <div class="card-ico" style="background: var(--color-bg); margin-bottom: 1rem;"><i class="ph-bold ph-calendar"></i></div>
+            <h3 class="h3" style="font-size: 1.25rem;">1. Agende</h3>
+            <p class="t3">Escolha o melhor horário para você.</p>
+          </div>
+          <div class="feature-card gs-stagger" style="padding: 2rem; border: none;">
+            <div class="card-ico" style="background: var(--color-bg); margin-bottom: 1rem;"><i class="ph-bold ph-hospital"></i></div>
+            <h3 class="h3" style="font-size: 1.25rem;">2. Consulte</h3>
+            <p class="t3">Traga seu pet para a avaliação clínica.</p>
+          </div>
+          <div class="feature-card gs-stagger" style="padding: 2rem; border: none;">
+            <div class="card-ico" style="background: var(--color-bg); margin-bottom: 1rem;"><i class="ph-bold ph-pill"></i></div>
+            <h3 class="h3" style="font-size: 1.25rem;">3. Tratamento</h3>
+            <p class="t3">Iniciamos o cuidado especializado.</p>
+          </div>
+          <div class="feature-card gs-stagger" style="padding: 2rem; border: none;">
+            <div class="card-ico" style="background: var(--color-bg); margin-bottom: 1rem;"><i class="ph-bold ph-paw-print"></i></div>
+            <h3 class="h3" style="font-size: 1.25rem;">4. Pet Feliz</h3>
+            <p class="t3">Seu amigo saudável e brincando.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="gs-reveal" style="padding: 4rem 0;">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="h2 center">O que dizem os tutores</h2>
+          <p class="t2 center">Histórias reais de quem confia na Cimu.</p>
+        </div>
+        <div style="display: flex; gap: 2rem; overflow-x: auto; padding: 1rem 0;">
           <!-- Card 1 -->
-          <div class="card feature-card gs-stagger">
-            <img src="https://images.unsplash.com/photo-1596272875886-f6313ed6c99f?auto=format&fit=crop&q=80&w=600" alt="Consulta" class="card-img">
-            <div class="card-content">
-              <h3 class="h3">Consultas de Rotina</h3>
-              <p class="t3">Acompanhamento completo do desenvolvimento e saúde do seu pet em um ambiente acolhedor.</p>
-              <a href="#" class="lnk short">Saiba mais</a>
+          <div class="feature-card" style="flex: 0 0 calc(25% - 1.5rem); padding: 2rem; text-align: left; align-items: flex-start; border: none;">
+            <div style="display: flex; color: var(--color-accent); margin-bottom: 1rem;"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+            <p class="t3" style="font-weight: 600; margin-bottom: 2rem; flex: 1;">"Obrigado por salvarem meu cachorro! Atendimento impecável."</p>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              <img src="https://i.pravatar.cc/100?img=1" style="width: 40px; height: 40px; border-radius: 50%;">
+              <div>
+                <div style="font-weight: 700; color: var(--color-text); line-height: 1;">Sofia</div>
+                <div style="font-size: 0.8rem; color: var(--color-text-light);">Tutora</div>
+              </div>
             </div>
           </div>
           <!-- Card 2 -->
-          <div class="card feature-card gs-stagger">
-            <div class="card-content">
-              <div class="card-ico accent"><i class="ph-fill ph-syringe"></i></div>
-              <h3 class="h3">Vacinas e Prevenção</h3>
-              <p class="t3">Protocolos vacinais atualizados e importados para garantir a imunização segura do seu amigo.</p>
-              <a href="servicos.html" class="lnk short">Saiba mais</a>
+          <div class="feature-card" style="flex: 0 0 calc(25% - 1.5rem); padding: 2rem; text-align: left; align-items: flex-start; border: none;">
+            <div style="display: flex; color: var(--color-accent); margin-bottom: 1rem;"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+            <p class="t3" style="font-weight: 600; margin-bottom: 2rem; flex: 1;">"Eles tratam minha gatinha com tanto amor, melhores profissionais!"</p>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              <img src="https://i.pravatar.cc/100?img=2" style="width: 40px; height: 40px; border-radius: 50%;">
+              <div>
+                <div style="font-weight: 700; color: var(--color-text); line-height: 1;">Pedro</div>
+                <div style="font-size: 0.8rem; color: var(--color-text-light);">Tutor</div>
+              </div>
             </div>
           </div>
           <!-- Card 3 -->
-          <div class="card feature-card gs-stagger">
-            <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=600" alt="Exames" class="card-img">
-            <div class="card-content">
-              <h3 class="h3">Exames Laboratoriais</h3>
-              <p class="t3">Laboratório próprio para exames de sangue, fezes e urina com resultados rápidos e precisos.</p>
-              <a href="#" class="lnk short">Saiba mais</a>
+          <div class="feature-card" style="flex: 0 0 calc(25% - 1.5rem); padding: 2rem; text-align: left; align-items: flex-start; border: none;">
+            <div style="display: flex; color: var(--color-accent); margin-bottom: 1rem;"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+            <p class="t3" style="font-weight: 600; margin-bottom: 2rem; flex: 1;">"Clínica super limpa e a Dra. Ana é maravilhosa."</p>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              <img src="https://i.pravatar.cc/100?img=3" style="width: 40px; height: 40px; border-radius: 50%;">
+              <div>
+                <div style="font-weight: 700; color: var(--color-text); line-height: 1;">Clara</div>
+                <div style="font-size: 0.8rem; color: var(--color-text-light);">Tutora</div>
+              </div>
             </div>
           </div>
           <!-- Card 4 -->
-          <div class="card feature-card gs-stagger">
-            <div class="card-content">
-              <div class="card-ico rose"><i class="ph-fill ph-heartbeat"></i></div>
-              <h3 class="h3">Cirurgias e Internação</h3>
-              <p class="t3">Bloco cirúrgico equipado com monitoramento multiparamétrico e baias confortáveis.</p>
-              <a href="servicos.html" class="lnk short">Saiba mais</a>
+          <div class="feature-card" style="flex: 0 0 calc(25% - 1.5rem); padding: 2rem; text-align: left; align-items: flex-start; border: none;">
+            <div style="display: flex; color: var(--color-accent); margin-bottom: 1rem;"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+            <p class="t3" style="font-weight: 600; margin-bottom: 2rem; flex: 1;">"Os serviços e vacinas são excelentes. Confio de olhos fechados."</p>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              <img src="https://i.pravatar.cc/100?img=4" style="width: 40px; height: 40px; border-radius: 50%;">
+              <div>
+                <div style="font-weight: 700; color: var(--color-text); line-height: 1;">João</div>
+                <div style="font-size: 0.8rem; color: var(--color-text-light);">Tutor</div>
+              </div>
             </div>
           </div>
-          <!-- Card 5 -->
-          <div class="card feature-card gs-stagger">
-            <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=600" alt="Odontologia" class="card-img">
-            <div class="card-content">
-              <h3 class="h3">Odontologia Veterinária</h3>
-              <p class="t3">Limpeza de tártaro e tratamentos dentários para manter a saúde bucal em dia.</p>
-              <a href="#" class="lnk short">Saiba mais</a>
-            </div>
-          </div>
-          <!-- Card 6 -->
-          <div class="card feature-card gs-stagger">
-            <div class="card-content">
-              <div class="card-ico indigo"><i class="ph-fill ph-first-aid-kit"></i></div>
-              <h3 class="h3">Pronto-Socorro 24h</h3>
-              <p class="t3">Atendimento de emergência 24 horas, todos os dias, com equipe médica de plantão sempre pronta.</p>
-              <a href="contato.html" class="lnk short">Ligar agora</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="banner gs-reveal">
-      <div class="container banner-container">
-        <div class="banner-content">
-          <h2 class="h2">A saúde do seu pet não pode esperar.</h2>
-          <p class="t2">Não deixe para depois. Pequenos cuidados hoje evitam grandes problemas amanhã. Agende uma avaliação de check-up preventivo com nossos especialistas.</p>
-          <a href="#" class="btn btn-magnetic btn-outline">Falar com Especialista</a>
-        </div>
-        <div class="banner-overlap">
-          <img src="https://images.unsplash.com/photo-1537151608804-ea6f152d005f?auto=format&fit=crop&q=80&w=800" alt="Cachorro saudável" class="banner-img-element">
-        </div>
-      </div>
-    </section>
-
-    <section class="details gs-reveal">
-      <div class="container details-container">
-        <div class="details-content">
-          <h2 class="h2">Tecnologia a favor da vida animal.</h2>
-          <p class="t2">Nosso centro de diagnóstico por imagem e laboratório clínico garantem que cada diagnóstico seja rápido e assertivo.</p>
-          <ul class="details-checklist">
-            <li class="li"><i class="ph-bold ph-check"></i> Raio-X Digital de alta resolução</li>
-            <li class="li"><i class="ph-bold ph-check"></i> Ultrassonografia com Doppler</li>
-            <li class="li"><i class="ph-bold ph-check"></i> Resultados de sangue em até 15 min</li>
-            <li class="li"><i class="ph-bold ph-check"></i> Anestesia inalatória com suporte de vida</li>
-          </ul>
-          <a href="#" class="btn btn-magnetic">Conheça a Estrutura</a>
-        </div>
-        <div class="details-visual">
-          <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&q=80&w=800" alt="Equipamento moderno" class="details-img-element">
-        </div>
-      </div>
-    </section>
-
-    <section class="gallery gs-reveal">
-      <div class="container gallery-container">
-        <div class="gallery-header section-header">
-          <h2 class="h2 center">Um ambiente pensado para eles</h2>
-          <p class="t2 center">Conheça nosso espaço. Tudo foi desenhado para reduzir o estresse dos pets e tutores.</p>
-        </div>
-        <div class="gallery-carousel">
-          <img src="https://images.unsplash.com/photo-1584813470613-5b1c1cad3d69?auto=format&fit=crop&q=80&w=600" alt="Recepção" class="gallery-img-element gs-stagger">
-          <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=600" alt="Consultório" class="gallery-img-element gs-stagger">
-          <img src="https://images.unsplash.com/photo-1553688738-a278b9f063e0?auto=format&fit=crop&q=80&w=600" alt="Sala de Exames" class="gallery-img-element gs-stagger">
         </div>
       </div>
     </section>
 
   </main>
 
-  <footer class="footer gs-reveal">
-    <div class="container footer-container">
-      <div class="footer-logo">
-        <i class="ph-fill ph-paw-print logo-icon"></i>
-        <span>VetCare</span>
+  <footer class="footer gs-reveal" style="background-color: var(--color-surface); padding: 6rem 0 2rem; border-top: none;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <div class="logo" style="justify-content: center; font-size: 2.5rem; margin-bottom: 1rem;">
+          <svg viewBox="0 0 256 256" class="animated-paw logo-icon">
+            <path class="paw-toe-1" d="M84.7,42.7c-9.1-12.7-25-18-36.4-11.4s-13.8,22.1-4.7,34.8,25,18,36.4,11.4S93.8,55.4,84.7,42.7Z"/>
+            <path class="paw-toe-2" d="M117.8,20.1c-12-8.3-29.2-4.9-38.3,7.6s-6.7,29.1,5.3,37.4,29.2,4.9,38.3-7.6S129.8,28.4,117.8,20.1Z"/>
+            <path class="paw-toe-3" d="M176.4,27.7c-9.1-12.5-26.3-15.9-38.3-7.6s-14.4,24.9-5.3,37.4,26.3,15.9,38.3,7.6S185.5,40.2,176.4,27.7Z"/>
+            <path class="paw-toe-4" d="M207.7,31.3C196.3,24.7,180.4,30,171.3,42.7s-3.7,28.2,7.7,34.8,25,18,36.4,11.4S216.8,44,207.7,31.3Z"/>
+            <path class="paw-pad" d="M228.6,134.4c-9.1-12.5-27-21.7-44.4-23.7a87,87,0,0,0-23.1-42.5c-6.8-6.6-18.7-6.5-26.1.7a89.9,89.9,0,0,0-23.1,42c-17.6,1.9-35.7,11.3-44.8,24-11.5,15.9-7.9,35.5,8,43.7,13.6,7.1,30.3,5.9,43.2-3l10.3-7c15.2-10.4,37.4-10.4,52.6,0l9.3,6.4c13.2,9.1,30.1,10.1,43.9,2.8C236.9,170.1,240.2,150.3,228.6,134.4Z"/>
+          </svg>
+          <span>Cimu</span>
+        </div>
+        <p class="t3">Nós oferecemos cuidado profissional e acolhedor para pets com muito amor.</p>
       </div>
-      <ul class="footer-links">
-        <li><a href="index.html" class="lnk">Início</a></li>
-        <li><a href="servicos.html" class="lnk">Serviços</a></li>
-        <li><a href="blog.html" class="lnk">Blog</a></li>
-        <li><a href="contato.html" class="lnk">Contato</a></li>
-      </ul>
-      <div class="footer-social">
-        <a href="#" class="social-ico"><i class="ph-fill ph-instagram-logo"></i></a>
-        <a href="#" class="social-ico"><i class="ph-fill ph-facebook-logo"></i></a>
+      
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 4rem;">
+        <div>
+          <h4 style="font-weight: 700; color: var(--color-primary-dark); margin-bottom: 1.5rem;">Links Rápidos</h4>
+          <ul style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <li><a href="#" class="t3">Início</a></li>
+            <li><a href="#" class="t3">Loja</a></li>
+            <li><a href="#" class="t3">Serviços</a></li>
+            <li><a href="#" class="t3">Sobre nós</a></li>
+            <li><a href="#" class="t3">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-weight: 700; color: var(--color-primary-dark); margin-bottom: 1.5rem;">Serviços</h4>
+          <ul style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <li><a href="#" class="t3">Check-up</a></li>
+            <li><a href="#" class="t3">Vacinação</a></li>
+            <li><a href="#" class="t3">Odontologia</a></li>
+            <li><a href="#" class="t3">Cirurgia</a></li>
+            <li><a href="#" class="t3">Emergência</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-weight: 700; color: var(--color-primary-dark); margin-bottom: 1.5rem;">Ajuda & Suporte</h4>
+          <ul style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <li><a href="#" class="t3">FAQ</a></li>
+            <li><a href="#" class="t3">Termos & Condições</a></li>
+            <li><a href="#" class="t3">Privacidade</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-weight: 700; color: var(--color-primary-dark); margin-bottom: 1.5rem;">Contato</h4>
+          <ul style="display: flex; flex-direction: column; gap: 1rem;">
+            <li class="t3" style="display: flex; gap: 0.5rem;"><i class="ph-bold ph-map-pin" style="color: var(--color-primary); font-size: 1.2rem;"></i> R. dos Animais, 123</li>
+            <li class="t3" style="display: flex; gap: 0.5rem;"><i class="ph-bold ph-phone" style="color: var(--color-primary); font-size: 1.2rem;"></i> +55 (11) 99999-9999</li>
+            <li class="t3" style="display: flex; gap: 0.5rem;"><i class="ph-bold ph-envelope" style="color: var(--color-primary); font-size: 1.2rem;"></i> contato@cimu.com</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid var(--color-border);">
+        <p class="t3" style="font-size: 0.9rem;">&copy; 2026 Cimu Pet Healthcare. All rights reserved.</p>
+        <div class="footer-social" style="gap: 0.5rem;">
+          <a href="#" class="social-ico" style="width: 36px; height: 36px; font-size: 1.2rem; background: var(--color-bg); box-shadow: none;"><i class="ph-fill ph-instagram-logo"></i></a>
+          <a href="#" class="social-ico" style="width: 36px; height: 36px; font-size: 1.2rem; background: var(--color-bg); box-shadow: none;"><i class="ph-fill ph-facebook-logo"></i></a>
+          <a href="#" class="social-ico" style="width: 36px; height: 36px; font-size: 1.2rem; background: var(--color-bg); box-shadow: none;"><i class="ph-fill ph-twitter-logo"></i></a>
+        </div>
       </div>
     </div>
   </footer>
+  </div> <!-- end of content wrapper -->
 
   <!-- Floating WhatsApp Hub (FAB) com Micro-interações -->
   <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="floating-wa-btn" aria-label="Fale conosco no WhatsApp">
