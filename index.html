@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínica Veterinária | Cuidado e Confiança</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Varela+Round&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/pages.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+  <div class="ambient-background" aria-hidden="true"></div>
+
+  <!-- Topbar: Emergência -->
+  <div class="topbar gs-reveal">
+    <div class="container topbar-container">
+      <p><i class="ph-fill ph-warning-circle"></i> Emergência 24h: <strong>(11) 99999-9999</strong></p>
+    </div>
+  </div>
+
+  <nav class="nav gs-reveal">
+    <div class="container nav-container">
+      <div class="logo">
+        <i class="ph-fill ph-paw-print logo-icon"></i>
+        <span>VetCare</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link nav-active">Início</a></li>
+        <li><a href="servicos.html" class="nav-link">Serviços</a></li>
+        <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="contato.html" class="nav-link">Contato</a></li>
+        <li><a href="#" class="nav-link portal-link"><i class="ph-bold ph-user"></i> Portal do Tutor</a></li>
+      </ul>
+      <a href="contato.html" class="btn btn-magnetic">Agendar no WhatsApp</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-background-wrapper">
+        <img
+          src="https://images.unsplash.com/photo-1548767797-d8c844163c4a?auto=format&fit=crop&q=80&w=1920"
+          alt="Veterinária sorrindo com um cachorro"
+          class="hero-background-img"
+          loading="eager"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <div class="container hero-container">
+        <div class="hero-content gs-reveal">
+          <h1 class="h1">Cuidado veterinário com carinho, técnica e confiança.</h1>
+          <p class="t1">Nossa equipe está pronta para cuidar do seu melhor amigo com a melhor estrutura e muito acolhimento, desde vacinas até cirurgias complexas.</p>
+          <div class="hero-actions">
+            <a href="contato.html" class="btn btn-magnetic">Agendar Consulta</a>
+            <a href="servicos.html" class="lnk">Conhecer a Clínica <i class="ph-bold ph-arrow-right"></i></a>
+          </div>
+          <!-- Badge agora é filho do hero-content, sem position:absolute -->
+          <div class="hero-badge">
+            <div class="badge-content">
+              <i class="ph-fill ph-heart"></i>
+              <span class="t3">Atendimento Humanizado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="proof gs-reveal">
+      <div class="container proof-container">
+        <div class="proof-item"><i class="ph-fill ph-check-circle"></i> +5.000 Pets Atendidos</div>
+        <div class="proof-item"><i class="ph-fill ph-star"></i> 4.9/5 Avaliações no Google</div>
+        <div class="proof-item"><i class="ph-fill ph-stethoscope"></i> Especialistas Certificados</div>
+        <div class="proof-item"><i class="ph-fill ph-first-aid"></i> Pronto-Socorro 24h</div>
+      </div>
+    </section>
+
+    <section class="intro gs-reveal">
+      <div class="container intro-container">
+        <div class="intro-left">
+          <h2 class="h2">Uma clínica feita para curar e orientar.</h2>
+        </div>
+        <div class="intro-right">
+          <p class="t2">Acreditamos que a medicina veterinária moderna deve ser transparente. Explicamos cada passo do tratamento para que você, tutor, participe ativamente da saúde do seu pet.</p>
+          <ul class="intro-contact">
+            <li class="t3"><i class="ph-bold ph-map-pin"></i> Av. dos Animais, 123 - Centro</li>
+            <li class="t3"><i class="ph-bold ph-clock"></i> Seg a Sáb: 08h às 20h</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="features gs-reveal">
+      <div class="container features-container">
+        <div class="features-header section-header">
+          <h2 class="h2 center">Tudo que seu pet precisa</h2>
+          <p class="t2 center">Da prevenção aos cuidados intensivos, oferecemos uma infraestrutura completa.</p>
+        </div>
+        
+        <div class="features-grid">
+          <!-- Card 1 -->
+          <div class="card feature-card gs-stagger">
+            <img src="https://images.unsplash.com/photo-1596272875886-f6313ed6c99f?auto=format&fit=crop&q=80&w=600" alt="Consulta" class="card-img">
+            <div class="card-content">
+              <h3 class="h3">Consultas de Rotina</h3>
+              <p class="t3">Acompanhamento completo do desenvolvimento e saúde do seu pet em um ambiente acolhedor.</p>
+              <a href="#" class="lnk short">Saiba mais</a>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="card feature-card gs-stagger">
+            <div class="card-content">
+              <div class="card-ico accent"><i class="ph-fill ph-syringe"></i></div>
+              <h3 class="h3">Vacinas e Prevenção</h3>
+              <p class="t3">Protocolos vacinais atualizados e importados para garantir a imunização segura do seu amigo.</p>
+              <a href="servicos.html" class="lnk short">Saiba mais</a>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="card feature-card gs-stagger">
+            <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=600" alt="Exames" class="card-img">
+            <div class="card-content">
+              <h3 class="h3">Exames Laboratoriais</h3>
+              <p class="t3">Laboratório próprio para exames de sangue, fezes e urina com resultados rápidos e precisos.</p>
+              <a href="#" class="lnk short">Saiba mais</a>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="card feature-card gs-stagger">
+            <div class="card-content">
+              <div class="card-ico rose"><i class="ph-fill ph-heartbeat"></i></div>
+              <h3 class="h3">Cirurgias e Internação</h3>
+              <p class="t3">Bloco cirúrgico equipado com monitoramento multiparamétrico e baias confortáveis.</p>
+              <a href="servicos.html" class="lnk short">Saiba mais</a>
+            </div>
+          </div>
+          <!-- Card 5 -->
+          <div class="card feature-card gs-stagger">
+            <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=600" alt="Odontologia" class="card-img">
+            <div class="card-content">
+              <h3 class="h3">Odontologia Veterinária</h3>
+              <p class="t3">Limpeza de tártaro e tratamentos dentários para manter a saúde bucal em dia.</p>
+              <a href="#" class="lnk short">Saiba mais</a>
+            </div>
+          </div>
+          <!-- Card 6 -->
+          <div class="card feature-card gs-stagger">
+            <div class="card-content">
+              <div class="card-ico indigo"><i class="ph-fill ph-first-aid-kit"></i></div>
+              <h3 class="h3">Pronto-Socorro 24h</h3>
+              <p class="t3">Atendimento de emergência 24 horas, todos os dias, com equipe médica de plantão sempre pronta.</p>
+              <a href="contato.html" class="lnk short">Ligar agora</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="banner gs-reveal">
+      <div class="container banner-container">
+        <div class="banner-content">
+          <h2 class="h2">A saúde do seu pet não pode esperar.</h2>
+          <p class="t2">Não deixe para depois. Pequenos cuidados hoje evitam grandes problemas amanhã. Agende uma avaliação de check-up preventivo com nossos especialistas.</p>
+          <a href="#" class="btn btn-magnetic btn-outline">Falar com Especialista</a>
+        </div>
+        <div class="banner-overlap">
+          <img src="https://images.unsplash.com/photo-1537151608804-ea6f152d005f?auto=format&fit=crop&q=80&w=800" alt="Cachorro saudável" class="banner-img-element">
+        </div>
+      </div>
+    </section>
+
+    <section class="details gs-reveal">
+      <div class="container details-container">
+        <div class="details-content">
+          <h2 class="h2">Tecnologia a favor da vida animal.</h2>
+          <p class="t2">Nosso centro de diagnóstico por imagem e laboratório clínico garantem que cada diagnóstico seja rápido e assertivo.</p>
+          <ul class="details-checklist">
+            <li class="li"><i class="ph-bold ph-check"></i> Raio-X Digital de alta resolução</li>
+            <li class="li"><i class="ph-bold ph-check"></i> Ultrassonografia com Doppler</li>
+            <li class="li"><i class="ph-bold ph-check"></i> Resultados de sangue em até 15 min</li>
+            <li class="li"><i class="ph-bold ph-check"></i> Anestesia inalatória com suporte de vida</li>
+          </ul>
+          <a href="#" class="btn btn-magnetic">Conheça a Estrutura</a>
+        </div>
+        <div class="details-visual">
+          <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&q=80&w=800" alt="Equipamento moderno" class="details-img-element">
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery gs-reveal">
+      <div class="container gallery-container">
+        <div class="gallery-header section-header">
+          <h2 class="h2 center">Um ambiente pensado para eles</h2>
+          <p class="t2 center">Conheça nosso espaço. Tudo foi desenhado para reduzir o estresse dos pets e tutores.</p>
+        </div>
+        <div class="gallery-carousel">
+          <img src="https://images.unsplash.com/photo-1584813470613-5b1c1cad3d69?auto=format&fit=crop&q=80&w=600" alt="Recepção" class="gallery-img-element gs-stagger">
+          <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=600" alt="Consultório" class="gallery-img-element gs-stagger">
+          <img src="https://images.unsplash.com/photo-1553688738-a278b9f063e0?auto=format&fit=crop&q=80&w=600" alt="Sala de Exames" class="gallery-img-element gs-stagger">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer gs-reveal">
+    <div class="container footer-container">
+      <div class="footer-logo">
+        <i class="ph-fill ph-paw-print logo-icon"></i>
+        <span>VetCare</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html" class="lnk">Início</a></li>
+        <li><a href="servicos.html" class="lnk">Serviços</a></li>
+        <li><a href="blog.html" class="lnk">Blog</a></li>
+        <li><a href="contato.html" class="lnk">Contato</a></li>
+      </ul>
+      <div class="footer-social">
+        <a href="#" class="social-ico"><i class="ph-fill ph-instagram-logo"></i></a>
+        <a href="#" class="social-ico"><i class="ph-fill ph-facebook-logo"></i></a>
+        <a href="#" class="social-ico"><i class="ph-fill ph-whatsapp-logo"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

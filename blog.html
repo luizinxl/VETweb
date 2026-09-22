@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | VetCare — Saúde Animal em Foco</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Varela+Round&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/pages.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+  <div class="ambient-background" aria-hidden="true"></div>
+
+  <div class="topbar">
+    <div class="container topbar-container">
+      <p><i class="ph-fill ph-warning-circle"></i> Emergência 24h: <strong>(11) 99999-9999</strong></p>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <i class="ph-fill ph-paw-print logo-icon"></i>
+        <span>VetCare</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Início</a></li>
+        <li><a href="servicos.html" class="nav-link">Serviços</a></li>
+        <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+        <li><a href="blog.html" class="nav-link nav-active">Blog</a></li>
+        <li><a href="contato.html" class="nav-link">Contato</a></li>
+        <li><a href="#" class="nav-link portal-link"><i class="ph-bold ph-user"></i> Portal do Tutor</a></li>
+      </ul>
+      <a href="contato.html" class="btn btn-magnetic">Agendar no WhatsApp</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-content">
+          <span class="page-tag"><i class="ph-fill ph-newspaper"></i> Blog VetCare</span>
+          <h1 class="h1">Conhecimento que salva vidas.</h1>
+          <p class="t1">Artigos, dicas e orientações escritos pelos nossos veterinários para ajudar você a cuidar melhor do seu pet no dia a dia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filtros -->
+    <section style="padding: 2rem 0; background: var(--color-surface); border-bottom: 1px solid var(--color-border);">
+      <div class="container">
+        <div class="blog-filters">
+          <button class="filter-btn filter-active">Todos</button>
+          <button class="filter-btn">Nutrição</button>
+          <button class="filter-btn">Prevenção</button>
+          <button class="filter-btn">Comportamento</button>
+          <button class="filter-btn">Cirurgia</button>
+          <button class="filter-btn">Raças</button>
+          <button class="filter-btn">Emergências</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Post Destaque -->
+    <section style="padding: 4rem 0; background: var(--color-bg);">
+      <div class="container">
+        <div class="blog-featured gs-reveal">
+          <div class="blog-featured-img">
+            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=900" alt="Post Destaque" class="details-img-element">
+          </div>
+          <div class="blog-featured-content">
+            <span class="blog-category-tag">Prevenção</span>
+            <h2 class="h2">O Calendário Vacinal Completo para Cães e Gatos em 2024</h2>
+            <p class="t2">Saber o momento certo de cada vacina é fundamental para garantir a imunidade do seu pet. Neste guia, a Dra. Camila explica o protocolo atualizado pela WSAVA e quais vacinas são obrigatórias no Brasil.</p>
+            <div class="blog-meta">
+              <span><i class="ph-bold ph-user"></i> Dra. Camila Ferreira</span>
+              <span><i class="ph-bold ph-calendar"></i> 15 de Março, 2024</span>
+              <span><i class="ph-bold ph-clock"></i> 8 min de leitura</span>
+            </div>
+            <a href="#" class="btn btn-magnetic">Ler Artigo Completo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid de Posts -->
+    <section class="features" style="padding-top: 2rem;">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="h2">Artigos Recentes</h2>
+          <p class="t2">Conteúdo atualizado pelos nossos especialistas toda semana.</p>
+        </div>
+        <div class="blog-grid">
+
+          <div class="card blog-card gs-stagger">
+            <div class="blog-card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=600" alt="Exame de sangue" class="blog-card-img">
+              <span class="blog-category-badge">Diagnóstico</span>
+            </div>
+            <div class="card-content">
+              <h3 class="h3">O que o hemograma do seu pet pode revelar?</h3>
+              <p class="t3">O exame de sangue é a janela para a saúde interna do seu animal. Entenda o que cada parâmetro significa e quando pedir o exame.</p>
+              <div class="blog-meta small">
+                <span><i class="ph-bold ph-user"></i> Dr. Rodrigo Alves</span>
+                <span><i class="ph-bold ph-clock"></i> 5 min</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card blog-card gs-stagger">
+            <div class="blog-card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1537151608804-ea6f152d005f?auto=format&fit=crop&q=80&w=600" alt="Cão feliz" class="blog-card-img">
+              <span class="blog-category-badge">Comportamento</span>
+            </div>
+            <div class="card-content">
+              <h3 class="h3">5 sinais de ansiedade em cães que você ignora</h3>
+              <p class="t3">Lamber as patas, se esconder ou latir excessivamente são apenas alguns dos sinais que o seu pet precisa de ajuda emocional.</p>
+              <div class="blog-meta small">
+                <span><i class="ph-bold ph-user"></i> Dra. Beatriz Nunes</span>
+                <span><i class="ph-bold ph-clock"></i> 6 min</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card blog-card gs-stagger">
+            <div class="blog-card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1596272875886-f6313ed6c99f?auto=format&fit=crop&q=80&w=600" alt="Gato na consulta" class="blog-card-img">
+              <span class="blog-category-badge">Nutrição</span>
+            </div>
+            <div class="card-content">
+              <h3 class="h3">Ração úmida vs. seca: qual é melhor para o seu gato?</h3>
+              <p class="t3">Gatos são bebedores naturalmente pobres. Descubra como a ração úmida pode prevenir doenças renais e do trato urinário.</p>
+              <div class="blog-meta small">
+                <span><i class="ph-bold ph-user"></i> Dra. Camila Ferreira</span>
+                <span><i class="ph-bold ph-clock"></i> 7 min</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card blog-card gs-stagger">
+            <div class="blog-card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&q=80&w=600" alt="Equipamento" class="blog-card-img">
+              <span class="blog-category-badge">Emergências</span>
+            </div>
+            <div class="card-content">
+              <h3 class="h3">O que fazer quando seu pet engole um objeto?</h3>
+              <p class="t3">Meias, brinquedos, ossos de frango — os pets ingerem tudo. Saiba como identificar uma obstrução e o que fazer antes de chegar à clínica.</p>
+              <div class="blog-meta small">
+                <span><i class="ph-bold ph-user"></i> Dr. Felipe Monteiro</span>
+                <span><i class="ph-bold ph-clock"></i> 4 min</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card blog-card gs-stagger">
+            <div class="blog-card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1553688738-a278b9f063e0?auto=format&fit=crop&q=80&w=600" alt="Sala de exames" class="blog-card-img">
+              <span class="blog-category-badge">Cirurgia</span>
+            </div>
+            <div class="card-content">
+              <h3 class="h3">Castração precoce: mitos e verdades</h3>
+              <p class="t3">Quando é a melhor idade para castrar? Quais são os benefícios reais? Dr. Rodrigo responde as 10 perguntas mais frequentes sobre o procedimento.</p>
+              <div class="blog-meta small">
+                <span><i class="ph-bold ph-user"></i> Dr. Rodrigo Alves</span>
+                <span><i class="ph-bold ph-clock"></i> 9 min</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card blog-card gs-stagger">
+            <div class="blog-card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1584813470613-5b1c1cad3d69?auto=format&fit=crop&q=80&w=600" alt="Recepção" class="blog-card-img">
+              <span class="blog-category-badge">Raças</span>
+            </div>
+            <div class="card-content">
+              <h3 class="h3">Cuidados específicos para Bulldog Francês</h3>
+              <p class="t3">Braquicefálicos têm necessidades únicas. Saiba como evitar crises respiratórias, cuida da pele das dobras e controlar o peso nessa raça adorável.</p>
+              <div class="blog-meta small">
+                <span><i class="ph-bold ph-user"></i> Dra. Beatriz Nunes</span>
+                <span><i class="ph-bold ph-clock"></i> 6 min</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section style="padding: 6rem 0; background: var(--color-surface);">
+      <div class="container">
+        <div class="newsletter-card card gs-reveal">
+          <div class="newsletter-content">
+            <div class="card-ico"><i class="ph-fill ph-envelope"></i></div>
+            <h2 class="h2">Receba dicas direto no e-mail</h2>
+            <p class="t2">Cadastre-se e receba mensalmente artigos exclusivos dos nossos veterinários, lembretes de vacinas e promoções especiais.</p>
+            <form class="newsletter-form" onsubmit="return false;">
+              <input type="email" placeholder="seu@email.com" class="form-input">
+              <button type="submit" class="btn btn-magnetic">Quero Receber</button>
+            </form>
+            <p class="t3" style="margin-top: 1rem;">Sem spam. Cancele quando quiser.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-logo">
+        <i class="ph-fill ph-paw-print logo-icon"></i>
+        <span>VetCare</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html" class="lnk">Início</a></li>
+        <li><a href="servicos.html" class="lnk">Serviços</a></li>
+        <li><a href="blog.html" class="lnk">Blog</a></li>
+        <li><a href="contato.html" class="lnk">Contato</a></li>
+      </ul>
+      <div class="footer-social">
+        <a href="#" class="social-ico"><i class="ph-fill ph-instagram-logo"></i></a>
+        <a href="#" class="social-ico"><i class="ph-fill ph-facebook-logo"></i></a>
+        <a href="#" class="social-ico"><i class="ph-fill ph-whatsapp-logo"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
