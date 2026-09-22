@@ -186,57 +186,60 @@ a { text-decoration: none; color: inherit; }
 /* Hero Section */
 .hero {
   position: relative;
-  min-height: calc(100vh - 120px);
+  min-height: calc(80vh - 80px);
   display: flex;
   align-items: center;
-  padding: 60px 0 100px; /* padding-bottom extra para não sobreposição do badge */
+  justify-content: center;
+  padding: 5rem 0 5.5rem;
   overflow: hidden;
-}
-
-.hero-background-wrapper {
-  position: absolute;
-  top: 0; right: 0; bottom: 0; width: 55%;
-  display: flex;
-  align-items: stretch;
-  border-radius: 0 0 0 120px;
-  overflow: hidden;
-  /* Fallback de cor caso a imagem demore/falhe */
-  background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
-}
-
-.hero-background-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 0 0 0 120px;
+  background: radial-gradient(ellipse 70% 50% at 50% 30%, rgba(20, 184, 166, 0.12) 0%, transparent 75%);
 }
 
 .hero-container {
   position: relative;
   z-index: 10;
   width: 100%;
-  /* Badge fica fora do fluxo da grid — não mais dentro das colunas */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .hero-content {
-  max-width: 50%; /* Ocupa metade da tela, texto não sobrepõe a imagem */
-  padding-right: 2rem;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-content .h1 {
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  line-height: 1.18;
+  margin-bottom: 1.5rem;
+  color: var(--color-primary-dark);
+}
+
+.hero-content .t1 {
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
 }
 
 .hero-actions {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1.5rem;
-  margin-top: 2rem;
-  flex-wrap: wrap; /* Não quebra em telas menores */
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
 }
 
-/* Badge reposicionado ABAIXO do hero-content, fora do grid */
+/* Badge reposicionado ABAIXO das ações */
 .hero-badge {
-  align-self: flex-start;
   margin-top: 2.5rem;
   background: var(--color-surface);
   padding: 0.85rem 1.75rem;
@@ -578,19 +581,10 @@ a { text-decoration: none; color: inherit; }
   .intro-container, .details-container {
     grid-template-columns: 1fr;
   }
-  .hero-background-wrapper {
-    position: relative;
-    width: 100%;
-    height: 380px;
-    border-radius: 0 0 40px 40px;
-  }
-  .hero-background-img {
-    border-radius: 0 0 40px 40px;
-  }
   .hero-content {
     padding-right: 0;
     max-width: 100%;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
   .hero-badge {
     margin-top: 1.5rem;
