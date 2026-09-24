@@ -28,11 +28,11 @@
     inset 1px 1px 3px rgba(255, 255, 255, 0.7);
     
   --shadow-clay-hover: 
-    12px 12px 28px rgba(11, 95, 89, 0.16), 
-    -6px -6px 16px rgba(255, 255, 255, 1),
-    inset 1px 1px 3px rgba(255, 255, 255, 0.8);
+    8px 8px 24px rgba(11, 95, 89, 0.12), 
+    -2px -2px 10px rgba(255, 255, 255, 0.5),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.4);
 
-  --container-max: 1200px;
+  --container-max: 1100px;
 }
 
 *, *::before, *::after {
@@ -66,13 +66,13 @@ a { text-decoration: none; color: inherit; }
   line-height: 1.2;
 }
 
-.h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.5rem; }
-.h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
-.h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+.h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1rem; }
+.h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 0.875rem; }
+.h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
 
-.t1 { font-size: 1.25rem; color: var(--color-text-light); margin-bottom: 2rem; }
-.t2 { font-size: 1.125rem; color: var(--color-text-light); margin-bottom: 1.5rem; }
-.t3 { font-size: 1rem; color: var(--color-text-light); }
+.t1 { font-size: 1rem; color: var(--color-text-light); margin-bottom: 1.5rem; }
+.t2 { font-size: 0.95rem; color: var(--color-text-light); margin-bottom: 1.25rem; }
+.t3 { font-size: 0.875rem; color: var(--color-text-light); }
 .center { text-align: center; }
 
 /* Buttons & Links */
@@ -80,7 +80,8 @@ a { text-decoration: none; color: inherit; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.875rem 2.25rem;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.9rem;
   background-color: var(--color-primary);
   color: white;
   font-weight: 700;
@@ -358,14 +359,14 @@ a { text-decoration: none; color: inherit; }
 
 /* Features */
 .features {
-  padding: 8rem 0;
+  padding: 5rem 0;
   background-color: var(--color-bg);
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 4rem;
-  max-width: 600px;
+  margin-bottom: 2.5rem;
+  max-width: 500px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -394,7 +395,6 @@ a { text-decoration: none; color: inherit; }
   transform: translateY(-6px);
   box-shadow: var(--shadow-clay-hover);
   border-color: var(--color-primary-dark);
-  background-color: var(--color-bg);
 }
 
 /* Focus/Blur effect via :has (from /animate skill) */
@@ -418,7 +418,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .feature-card .card-content {
-  padding: 2rem;
+  padding: 1.25rem;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -426,17 +426,25 @@ a { text-decoration: none; color: inherit; }
   z-index: 2;
 }
 
+.feature-card .h3 {
+  font-size: 1.1rem;
+}
+
+.feature-card .t3 {
+  font-size: 0.95rem;
+}
+
 /* Ícones com gradientes coloridos por categoria */
 .card-ico {
-  width: 64px;
-  height: 64px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--color-bg);
   border: 1px solid var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1.5rem auto 1rem;
+  margin: 1.25rem auto 0.75rem;
   flex-shrink: 0;
   transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.35s ease;
 }
@@ -445,7 +453,7 @@ a { text-decoration: none; color: inherit; }
   background: var(--color-primary);
 }
 .card-ico i {
-  font-size: 1.85rem;
+  font-size: 1.5rem;
   color: var(--color-primary);
   transition: color 0.35s ease;
 }
@@ -469,7 +477,7 @@ a { text-decoration: none; color: inherit; }
   position: relative;
   background-color: var(--color-primary-dark);
   border-radius: var(--radius-lg);
-  padding: 4rem;
+  padding: 3rem;
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   color: white;
@@ -667,6 +675,12 @@ a { text-decoration: none; color: inherit; }
   .footer-container {
     flex-direction: column;
     gap: 2rem;
+  }
+  .features {
+    padding: 3rem 0;
+  }
+  .banner-container {
+    padding: 1.5rem;
   }
 }
 
@@ -951,6 +965,20 @@ body.gsap-ready .gs-stagger {
 }
 .liquid-glass-dark .h1, .liquid-glass-dark .h2, .liquid-glass-dark .h3, .liquid-glass-dark .t1, .liquid-glass-dark .t2, .liquid-glass-dark .t3 {
   color: #fff !important;
+}
+
+.feature-card.liquid-glass:hover {
+  background-color: transparent;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 28px 56px 0 rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.feature-card.liquid-glass-dark:hover {
+  background-color: transparent;
+  background: rgba(11, 95, 89, 0.75);
+  box-shadow: 0 24px 50px 0 rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 /* -----------------------
