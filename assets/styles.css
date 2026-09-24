@@ -491,20 +491,20 @@ a { text-decoration: none; color: inherit; }
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-clay);
-  border: 1px solid var(--color-border);
+  border: 1px solid transparent; /* Remove solid border to rely on clay shadow */
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease, border-color 0.4s ease, background-color 0.4s ease, filter 0.4s ease, opacity 0.4s ease;
   display: flex;
   flex-direction: column;
   position: relative;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .feature-card:hover {
     transform: translateY(-6px);
     box-shadow: var(--shadow-clay-hover);
-    border-color: var(--color-primary-dark);
+    border-color: rgba(11, 95, 89, 0.15);
   }
 }
 .feature-card:active {
@@ -513,7 +513,8 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* Focus/Blur effect via :has (from /animate skill) */
-.features-grid:has(.feature-card:hover) .feature-card:not(:hover) {
+.features-grid:has(.feature-card:hover) .feature-card:not(:hover),
+.features-grid-2x2:has(.feature-card:hover) .feature-card:not(:hover) {
   filter: blur(4px);
   opacity: 0.5;
   transform: scale(0.97);
@@ -533,33 +534,39 @@ a { text-decoration: none; color: inherit; }
 }
 
 .feature-card .card-content {
-  padding: 1.25rem;
+  padding: 2rem;
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   position: relative;
   z-index: 2;
 }
 
 .feature-card .h3 {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
 }
 
 .feature-card .t3 {
-  font-size: 0.95rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-light);
 }
 
 /* Ícones com gradientes coloridos por categoria */
 .card-ico {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--color-bg);
-  border: 1px solid var(--color-primary);
+  width: 48px;
+  height: 48px;
+  border-radius: 12px; /* Slight squircle instead of full circle for modern look */
+  background: rgba(11, 95, 89, 0.08); /* Soft primary tint */
+  border: 1px solid rgba(11, 95, 89, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1.25rem auto 0.75rem;
+  margin: 0 0 1.25rem 0;
   flex-shrink: 0;
   transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.35s ease;
 }

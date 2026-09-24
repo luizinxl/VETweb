@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 6. CARDS — Entrada 3D em cascata sincronizada com física de mola
   // ══════════════════════════════════════════════════════════════════════════
   document.querySelectorAll(
-    '.features-grid, .gallery-carousel, .service-list-grid, .mvv-grid, .team-grid, .blog-grid, .faq-grid, .contact-grid'
+    '.features-grid, .features-grid-2x2, .gallery-carousel, .service-list-grid, .mvv-grid, .team-grid, .blog-grid, .faq-grid, .contact-grid'
   ).forEach(container => {
     const items = container.querySelectorAll('.card, .feature-card, .service-item, .mvv-card, .team-card, .blog-card, .faq-item, .contact-info-card');
     if (!items.length) return;
