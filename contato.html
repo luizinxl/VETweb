@@ -2,13 +2,16 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#EBEAE4" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#084944" />
+  <meta name="color-scheme" content="light dark" />
   <title>Contato | Cimu Clínica Veterinária</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Varela+Round&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css">
-  <link rel="stylesheet" href="assets/pages.css">
+  <link rel="stylesheet" href="assets/styles.css?v=13">
+  <link rel="stylesheet" href="assets/pages.css?v=13">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
@@ -28,15 +31,17 @@
       </div>
       <ul class="nav-links">
         <li><a href="index.html" class="nav-link">Início</a></li>
-        <li><a href="#" class="nav-link">Loja</a></li>
         <li><a href="servicos.html" class="nav-link">Serviços</a></li>
         <li><a href="sobre.html" class="nav-link">Sobre nós</a></li>
         <li><a href="contato.html" class="nav-link nav-active">Contato</a></li>
       </ul>
-      <div style="display:flex; gap:1rem; align-items:center;">
-        <a href="#" class="nav-link"><i class="ph-bold ph-user" style="font-size:1.5rem; color:var(--color-primary);"></i></a>
-        <a href="contato.html" class="btn btn-magnetic btn-outline" style="padding: 0.5rem 1rem; border-radius: 99px;">
-           <i class="ph-fill ph-phone" style="margin-right: 0.5rem;"></i> +55 (11) 99999-9999
+      <div class="nav-actions">
+        <a href="#" class="nav-icon-link" aria-label="Portal do Cliente">
+          <i class="ph-bold ph-user"></i>
+        </a>
+        <a href="contato.html" class="btn btn-magnetic btn-outline nav-phone-btn">
+           <i class="ph-fill ph-phone"></i>
+           <span class="phone-text">+55 (11) 99999-9999</span>
         </a>
       </div>
     </div>
@@ -267,12 +272,11 @@
         <p class="t3">Nós oferecemos cuidado profissional e acolhedor para pets com muito amor.</p>
       </div>
       
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 4rem;">
+      <div class="footer-grid">
         <div>
           <h4 style="font-weight: 700; color: var(--color-primary-dark); margin-bottom: 1.5rem;">Links Rápidos</h4>
           <ul style="display: flex; flex-direction: column; gap: 0.75rem;">
             <li><a href="#" class="t3">Início</a></li>
-            <li><a href="#" class="t3">Loja</a></li>
             <li><a href="#" class="t3">Serviços</a></li>
             <li><a href="#" class="t3">Sobre nós</a></li>
             <li><a href="#" class="t3">Contato</a></li>
@@ -306,7 +310,7 @@
         </div>
       </div>
       
-      <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid var(--color-border);">
+      <div class="footer-bottom">
         <p class="t3" style="font-size: 0.9rem;">&copy; 2026 Cimu Pet Healthcare. All rights reserved.</p>
         <div class="footer-social" style="gap: 0.5rem;">
           <a href="#" class="social-ico" style="width: 36px; height: 36px; font-size: 1.2rem; background: var(--color-bg); box-shadow: none;"><i class="ph-fill ph-instagram-logo"></i></a>
@@ -316,6 +320,26 @@
       </div>
     </div>
   </footer>
+
+  <!-- Mobile Bottom Nav -->
+  <nav class="mobile-bottom-nav">
+    <a href="index.html" class="bottom-nav-item">
+      <i class="ph-bold ph-house"></i>
+      <span>Início</span>
+    </a>
+    <a href="servicos.html" class="bottom-nav-item">
+      <i class="ph-bold ph-stethoscope"></i>
+      <span>Serviços</span>
+    </a>
+    <a href="sobre.html" class="bottom-nav-item">
+      <i class="ph-bold ph-info"></i>
+      <span>Sobre</span>
+    </a>
+    <a href="contato.html" class="bottom-nav-item active">
+      <i class="ph-bold ph-envelope-simple"></i>
+      <span>Contato</span>
+    </a>
+  </nav>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>

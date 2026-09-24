@@ -2,15 +2,17 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#EBEAE4" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#084944" />
+  <meta name="color-scheme" content="light dark" />
   <title>Clínica Veterinária | Cuidado e Confiança</title>
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Varela+Round&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="assets/styles.css">
-  <link rel="stylesheet" href="assets/pages.css">
+  <link rel="stylesheet" href="assets/styles.css?v=13">
+  <link rel="stylesheet" href="assets/pages.css?v=13">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
@@ -36,36 +38,35 @@
       </div>
       <ul class="nav-links">
         <li><a href="index.html" class="nav-link nav-active">Início</a></li>
-        <li><a href="#" class="nav-link">Loja</a></li>
         <li><a href="servicos.html" class="nav-link">Serviços</a></li>
         <li><a href="sobre.html" class="nav-link">Sobre nós</a></li>
         <li><a href="contato.html" class="nav-link">Contato</a></li>
       </ul>
-      <div style="display:flex; gap:1rem; align-items:center;">
-        <a href="#" class="nav-link"><i class="ph-bold ph-user" style="font-size:1.5rem; color:var(--color-primary);"></i></a>
-        <a href="contato.html" class="btn btn-magnetic btn-outline" style="padding: 0.5rem 1rem; border-radius: 99px;">
-           <i class="ph-fill ph-phone" style="margin-right: 0.5rem;"></i> +55 (11) 99999-9999
+      <div class="nav-actions">
+        <a href="#" class="nav-icon-link" aria-label="Portal do Cliente">
+          <i class="ph-bold ph-user"></i>
+        </a>
+        <a href="contato.html" class="btn btn-magnetic btn-outline nav-phone-btn">
+           <i class="ph-fill ph-phone"></i>
+           <span class="phone-text">+55 (11) 99999-9999</span>
         </a>
       </div>
     </div>
   </nav>
 
   <main>
-    <!-- Background Fullscreen Video -->
-    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; background: #000;">
-      <!-- Overlay escuro para garantir legibilidade dos textos brancos -->
-      <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); z-index: 1;"></div>
-      <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
-        <source src="assets/hero_video.mp4" type="video/mp4">
-      </video>
-    </div>
+    <!-- CARDS SECTION: Hero section with absolute video background -->
+    <section class="hero-cards" style="position: relative; width: 100%; min-height: 100vh; padding: 8rem 0 4rem; overflow: hidden; display: flex; flex-direction: column; justify-content: center;">
+      <!-- Background Video constrained to Hero -->
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: #000;">
+        <!-- Overlay escuro -->
+        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); z-index: 1;"></div>
+        <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 0;">
+          <source src="assets/hero_video.mp4" type="video/mp4">
+        </video>
+      </div>
 
-    <!-- INITIAL SPACER: 100vh of nothing so they just see the video first -->
-    <section class="hero-spacer" style="width: 100%; height: 100vh; position: relative; z-index: 1; pointer-events: none;"></section>
-
-    <!-- CARDS SECTION: Scrolling over the video with Liquid Glass -->
-    <section class="hero-cards" style="padding: 2rem 0 8rem; position: relative; z-index: 1;">
-      <div class="container gs-reveal" style="display: flex; flex-direction: row; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 4rem;">
+      <div class="container gs-reveal" style="position: relative; z-index: 2; display: flex; flex-direction: row; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 4rem;">
         
         <!-- Liquid Glass Text Content -->
         <div class="liquid-glass" style="flex: 1; min-width: 300px; max-width: 500px; padding: 2rem; border-radius: 3rem;">
@@ -93,7 +94,7 @@
       </div>
       
       <!-- Stats bar na base do hero em Liquid Glass -->
-      <div class="container gs-reveal" style="position: relative; margin-top: 4rem;">
+      <div class="container gs-reveal" style="position: relative; margin-top: 4rem; z-index: 2;">
         <div class="feature-card liquid-glass-dark" style="flex-direction: row; justify-content: space-around; flex-wrap: wrap; gap: 2rem; padding: 1.25rem; width: 100%; border-radius: 3rem;">
           <div style="display:flex; align-items:center; gap: 1rem; text-align: left;">
             <i class="ph-fill ph-stethoscope" style="font-size: 1.5rem; color: #fff;"></i>
@@ -172,7 +173,7 @@
     <!-- Why Choose Us -->
     <section class="gs-reveal" style="padding: 4rem 0;">
       <div class="container">
-        <div class="feature-card" style="flex-direction: row; padding: 2.5rem; background-color: var(--color-bg); border: none; text-align: left; align-items: center; justify-content: space-between; gap: 4rem;">
+        <div class="feature-card why-us-card" style="padding: 2.5rem; background-color: var(--color-bg); border: none; text-align: left; align-items: center; justify-content: space-between; gap: 4rem;">
           <div style="flex: 1; position: relative;">
             <img src="assets/img/husky_cat.jpg" alt="Husky and Cat" style="width: 100%; border-radius: var(--radius-lg); mix-blend-mode: multiply;">
           </div>
@@ -210,12 +211,12 @@
     <!-- Banner -->
     <section class="gs-reveal" style="padding: 4rem 0;">
       <div class="container">
-        <div style="background-color: var(--color-primary-dark); border-radius: var(--radius-lg); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; color: white;">
-          <div style="max-width: 50%;">
+        <div class="cta-banner">
+          <div class="cta-banner-text">
             <h2 class="h2" style="color: white; margin-bottom: 1rem;">Pronto para dar o melhor cuidado ao seu pet?</h2>
             <p style="opacity: 0.8; margin-bottom: 0;">Agende uma consulta hoje mesmo com nossa equipe.</p>
           </div>
-          <div style="display: flex; gap: 2rem; align-items: center;">
+          <div class="cta-banner-actions">
             <a href="contato.html" class="btn btn-magnetic" style="background-color: var(--color-surface); color: var(--color-primary-dark);">Agendar Consulta <i class="ph-bold ph-arrow-right" style="margin-left: 0.5rem;"></i></a>
             <img src="https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&q=80&w=200" alt="Dog" style="width: 90px; height: 90px; object-fit: cover; border-radius: 50%;">
           </div>
@@ -230,23 +231,23 @@
           <h2 class="h2 center">Como Funciona</h2>
           <p class="t2 center">Processo simples e eficiente para o bem-estar do seu pet.</p>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;">
-          <div class="feature-card gs-stagger" style="padding: 1.5rem; border: none;">
+        <div class="process-grid">
+          <div class="feature-card gs-stagger" style="padding: 1.5rem;">
             <div class="card-ico" style="background: var(--color-bg); margin-bottom: 1rem;"><i class="ph-bold ph-calendar"></i></div>
             <h3 class="h3" style="font-size: 1.1rem;">1. Agende</h3>
             <p class="t3">Escolha o melhor horário para você.</p>
           </div>
-          <div class="feature-card gs-stagger" style="padding: 1.5rem; border: none;">
+          <div class="feature-card gs-stagger" style="padding: 1.5rem;">
             <div class="card-ico" style="background: var(--color-bg); margin-bottom: 1rem;"><i class="ph-bold ph-hospital"></i></div>
             <h3 class="h3" style="font-size: 1.1rem;">2. Consulte</h3>
             <p class="t3">Traga seu pet para a avaliação clínica.</p>
           </div>
-          <div class="feature-card gs-stagger" style="padding: 1.5rem; border: none;">
+          <div class="feature-card gs-stagger" style="padding: 1.5rem;">
             <div class="card-ico" style="background: var(--color-bg); margin-bottom: 1rem;"><i class="ph-bold ph-pill"></i></div>
             <h3 class="h3" style="font-size: 1.1rem;">3. Tratamento</h3>
             <p class="t3">Iniciamos o cuidado especializado.</p>
           </div>
-          <div class="feature-card gs-stagger" style="padding: 1.5rem; border: none;">
+          <div class="feature-card gs-stagger" style="padding: 1.5rem;">
             <div class="card-ico" style="background: var(--color-bg); margin-bottom: 1rem;"><i class="ph-bold ph-paw-print"></i></div>
             <h3 class="h3" style="font-size: 1.1rem;">4. Pet Feliz</h3>
             <p class="t3">Seu amigo saudável e brincando.</p>
@@ -262,9 +263,9 @@
           <h2 class="h2 center">O que dizem os tutores</h2>
           <p class="t2 center">Histórias reais de quem confia na Cimu.</p>
         </div>
-        <div style="display: flex; gap: 2rem; overflow-x: auto; padding: 1rem 0;">
+        <div class="reviews-slider hide-scroll">
           <!-- Card 1 -->
-          <div class="feature-card" style="flex: 0 0 calc(25% - 1.5rem); max-width: 280px; padding: 1.25rem; text-align: left; align-items: flex-start; border: none;">
+          <div class="feature-card review-card" style="padding: 1.25rem; text-align: left; align-items: flex-start;">
             <div style="display: flex; color: var(--color-accent); margin-bottom: 1rem;"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
             <p class="t3" style="font-weight: 600; margin-bottom: 2rem; flex: 1;">"Obrigado por salvarem meu cachorro! Atendimento impecável."</p>
             <div style="display: flex; gap: 1rem; align-items: center;">
@@ -276,11 +277,11 @@
             </div>
           </div>
           <!-- Card 2 -->
-          <div class="feature-card" style="flex: 0 0 calc(25% - 1.5rem); max-width: 280px; padding: 1.25rem; text-align: left; align-items: flex-start; border: none;">
+          <div class="feature-card review-card" style="padding: 1.25rem; text-align: left; align-items: flex-start;">
             <div style="display: flex; color: var(--color-accent); margin-bottom: 1rem;"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
             <p class="t3" style="font-weight: 600; margin-bottom: 2rem; flex: 1;">"Eles tratam minha gatinha com tanto amor, melhores profissionais!"</p>
             <div style="display: flex; gap: 1rem; align-items: center;">
-              <img src="https://i.pravatar.cc/100?img=2" style="width: 40px; height: 40px; border-radius: 50%;">
+              <img src="https://i.pravatar.cc/100?img=12" style="width: 40px; height: 40px; border-radius: 50%;">
               <div>
                 <div style="font-weight: 700; color: var(--color-text); line-height: 1;">Pedro</div>
                 <div style="font-size: 0.8rem; color: var(--color-text-light);">Tutor</div>
@@ -288,11 +289,11 @@
             </div>
           </div>
           <!-- Card 3 -->
-          <div class="feature-card" style="flex: 0 0 calc(25% - 1.5rem); max-width: 280px; padding: 1.25rem; text-align: left; align-items: flex-start; border: none;">
+          <div class="feature-card review-card" style="padding: 1.25rem; text-align: left; align-items: flex-start;">
             <div style="display: flex; color: var(--color-accent); margin-bottom: 1rem;"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
             <p class="t3" style="font-weight: 600; margin-bottom: 2rem; flex: 1;">"Clínica super limpa e a Dra. Ana é maravilhosa."</p>
             <div style="display: flex; gap: 1rem; align-items: center;">
-              <img src="https://i.pravatar.cc/100?img=3" style="width: 40px; height: 40px; border-radius: 50%;">
+              <img src="https://i.pravatar.cc/100?img=33" style="width: 40px; height: 40px; border-radius: 50%;">
               <div>
                 <div style="font-weight: 700; color: var(--color-text); line-height: 1;">Clara</div>
                 <div style="font-size: 0.8rem; color: var(--color-text-light);">Tutora</div>
@@ -300,7 +301,7 @@
             </div>
           </div>
           <!-- Card 4 -->
-          <div class="feature-card" style="flex: 0 0 calc(25% - 1.5rem); max-width: 280px; padding: 1.25rem; text-align: left; align-items: flex-start; border: none;">
+          <div class="feature-card review-card" style="padding: 1.25rem; text-align: left; align-items: flex-start;">
             <div style="display: flex; color: var(--color-accent); margin-bottom: 1rem;"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
             <p class="t3" style="font-weight: 600; margin-bottom: 2rem; flex: 1;">"Os serviços e vacinas são excelentes. Confio de olhos fechados."</p>
             <div style="display: flex; gap: 1rem; align-items: center;">
@@ -333,12 +334,11 @@
         <p class="t3">Nós oferecemos cuidado profissional e acolhedor para pets com muito amor.</p>
       </div>
       
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 4rem;">
+      <div class="footer-grid">
         <div>
           <h4 style="font-weight: 700; color: var(--color-primary-dark); margin-bottom: 1.5rem;">Links Rápidos</h4>
           <ul style="display: flex; flex-direction: column; gap: 0.75rem;">
             <li><a href="#" class="t3">Início</a></li>
-            <li><a href="#" class="t3">Loja</a></li>
             <li><a href="#" class="t3">Serviços</a></li>
             <li><a href="#" class="t3">Sobre nós</a></li>
             <li><a href="#" class="t3">Contato</a></li>
@@ -372,7 +372,7 @@
         </div>
       </div>
       
-      <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid var(--color-border);">
+      <div class="footer-bottom">
         <p class="t3" style="font-size: 0.9rem;">&copy; 2026 Cimu Pet Healthcare. All rights reserved.</p>
         <div class="footer-social" style="gap: 0.5rem;">
           <a href="#" class="social-ico" style="width: 36px; height: 36px; font-size: 1.2rem; background: var(--color-bg); box-shadow: none;"><i class="ph-fill ph-instagram-logo"></i></a>
@@ -384,6 +384,26 @@
   </footer>
   </div> <!-- end of content wrapper -->
 
+  <!-- Mobile Bottom Nav -->
+  <nav class="mobile-bottom-nav">
+    <a href="index.html" class="bottom-nav-item active">
+      <i class="ph-bold ph-house"></i>
+      <span>Início</span>
+    </a>
+    <a href="servicos.html" class="bottom-nav-item">
+      <i class="ph-bold ph-stethoscope"></i>
+      <span>Serviços</span>
+    </a>
+    <a href="sobre.html" class="bottom-nav-item">
+      <i class="ph-bold ph-info"></i>
+      <span>Sobre</span>
+    </a>
+    <a href="contato.html" class="bottom-nav-item">
+      <i class="ph-bold ph-envelope-simple"></i>
+      <span>Contato</span>
+    </a>
+  </nav>
+
   <!-- Floating WhatsApp Hub (FAB) com Micro-interações -->
   <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="floating-wa-btn" aria-label="Fale conosco no WhatsApp">
     <span class="wa-beacon"></span>
@@ -391,41 +411,7 @@
     <span>Plantão WhatsApp</span>
   </a>
 
-  <!-- Emoji Scatter Script -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const emojiList = ['🐶', '🐱', '🐾', '🦴'];
-      const emojis = [...emojiList, ...emojiList, ...emojiList]; // 3 repetições
-      
-      const layer = document.createElement('div');
-      layer.style.cssText = 'position: fixed; inset: 0; z-index: 5; pointer-events: none; overflow: hidden; opacity: 0.15;';
-      document.body.appendChild(layer);
 
-      emojis.forEach((emoji) => {
-        const el = document.createElement('div');
-        el.innerText = emoji;
-        el.style.position = 'absolute';
-        el.style.fontSize = (Math.random() * 1.5 + 1.5) + 'rem';
-        el.style.left = (Math.random() * 90 + 5) + 'vw';
-        el.style.top = (Math.random() * 90 + 5) + 'vh';
-        
-        layer.appendChild(el);
-
-        if (window.gsap) {
-          gsap.to(el, {
-            y: `+=${Math.random() * 40 - 20}`,
-            x: `+=${Math.random() * 40 - 20}`,
-            rotation: Math.random() * 60 - 30,
-            duration: Math.random() * 5 + 5,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut"
-          });
-        }
-      });
-    });
-  </script>
-  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="assets/app.js"></script>
