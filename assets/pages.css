@@ -792,6 +792,20 @@
 }
 .faq-item .h3 { margin-bottom: 0; }
 
+/* Features 2x2 Grid */
+.features-grid-2x2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* Centraliza o quinto card */
+.features-grid-2x2 .card:nth-child(5):last-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc(50% - 0.75rem);
+}
+
 /* ===================================
    Responsive — pages.css
    =================================== */
@@ -812,4 +826,6 @@
   .newsletter-form { flex-direction: column; }
   .form-row { grid-template-columns: 1fr; }
   .timeline-item { grid-template-columns: 80px 1fr; }
+  .features-grid-2x2 { grid-template-columns: 1fr; }
+  .features-grid-2x2 .card:nth-child(5):last-child { grid-column: 1; width: 100%; }
 }
