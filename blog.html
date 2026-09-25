@@ -2,16 +2,21 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#EBEAE4" />
+  <meta name="description" content="Artigos e dicas dos veterinários da Cimu sobre saúde, nutrição, prevenção e comportamento animal.">
   <title>Blog | Cimu — Saúde Animal em Foco</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Varela+Round&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css">
-  <link rel="stylesheet" href="assets/pages.css">
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="assets/styles.css?v=14">
+  <link rel="stylesheet" href="assets/pages.css?v=14">
+  <link rel="stylesheet" href="assets/enhance.css?v=14">
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <!-- Barra de Progresso Superior -->
   <div id="scroll-progress"></div>
 
@@ -20,7 +25,7 @@
 
   <div class="ambient-background" aria-hidden="true"></div>
 
-  <nav class="nav gs-reveal">
+  <nav class="nav" aria-label="Principal">
     <div class="container nav-container">
       <div class="logo">
         <i class="ph-fill ph-paw-print logo-icon"></i>
@@ -32,16 +37,19 @@
         <li><a href="sobre.html" class="nav-link">Sobre nós</a></li>
         <li><a href="contato.html" class="nav-link">Contato</a></li>
       </ul>
-      <div style="display:flex; gap:1rem; align-items:center;">
-        <a href="#" class="nav-link"><i class="ph-bold ph-user" style="font-size:1.5rem; color:var(--color-primary);"></i></a>
-        <a href="contato.html" class="btn btn-magnetic btn-outline" style="padding: 0.5rem 1rem; border-radius: 99px;">
-           <i class="ph-fill ph-phone" style="margin-right: 0.5rem;"></i> +55 (11) 99999-9999
+      <div class="nav-actions">
+        <a href="#" class="nav-icon-link" aria-label="Portal do Cliente">
+          <i class="ph-bold ph-user"></i>
+        </a>
+        <a href="contato.html" class="btn btn-magnetic btn-outline nav-phone-btn">
+           <i class="ph-fill ph-phone"></i>
+           <span class="phone-text">+55 (11) 99999-9999</span>
         </a>
       </div>
     </div>
   </nav>
 
-  <main>
+  <main id="conteudo">
 
     <!-- Page Hero -->
     <section class="page-hero">
@@ -58,13 +66,13 @@
     <section style="padding: 2rem 0; background: var(--color-surface); border-bottom: 1px solid var(--color-border);">
       <div class="container">
         <div class="blog-filters">
-          <button class="filter-btn filter-active">Todos</button>
-          <button class="filter-btn">Nutrição</button>
-          <button class="filter-btn">Prevenção</button>
-          <button class="filter-btn">Comportamento</button>
-          <button class="filter-btn">Cirurgia</button>
-          <button class="filter-btn">Raças</button>
-          <button class="filter-btn">Emergências</button>
+          <button class="filter-btn filter-active" aria-pressed="true">Todos</button>
+          <button class="filter-btn" aria-pressed="false">Nutrição</button>
+          <button class="filter-btn" aria-pressed="false">Prevenção</button>
+          <button class="filter-btn" aria-pressed="false">Comportamento</button>
+          <button class="filter-btn" aria-pressed="false">Cirurgia</button>
+          <button class="filter-btn" aria-pressed="false">Raças</button>
+          <button class="filter-btn" aria-pressed="false">Emergências</button>
         </div>
       </div>
     </section>
@@ -74,7 +82,7 @@
       <div class="container">
         <div class="blog-featured gs-reveal">
           <div class="blog-featured-img">
-            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=900" alt="Post Destaque" class="details-img-element">
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=900" alt="Post Destaque" class="details-img-element">
           </div>
           <div class="blog-featured-content">
             <span class="blog-category-tag">Prevenção</span>
@@ -102,7 +110,7 @@
 
           <div class="card blog-card gs-stagger">
             <div class="blog-card-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=600" alt="Exame de sangue" class="blog-card-img">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=600" alt="Exame de sangue" class="blog-card-img">
               <span class="blog-category-badge">Diagnóstico</span>
             </div>
             <div class="card-content">
@@ -117,7 +125,7 @@
 
           <div class="card blog-card gs-stagger">
             <div class="blog-card-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1537151608804-ea6f152d005f?auto=format&fit=crop&q=80&w=600" alt="Cão feliz" class="blog-card-img">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1537151608804-ea6f152d005f?auto=format&fit=crop&q=80&w=600" alt="Cão feliz" class="blog-card-img">
               <span class="blog-category-badge">Comportamento</span>
             </div>
             <div class="card-content">
@@ -132,7 +140,7 @@
 
           <div class="card blog-card gs-stagger">
             <div class="blog-card-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1596272875886-f6313ed6c99f?auto=format&fit=crop&q=80&w=600" alt="Gato na consulta" class="blog-card-img">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1596272875886-f6313ed6c99f?auto=format&fit=crop&q=80&w=600" alt="Gato na consulta" class="blog-card-img">
               <span class="blog-category-badge">Nutrição</span>
             </div>
             <div class="card-content">
@@ -147,7 +155,7 @@
 
           <div class="card blog-card gs-stagger">
             <div class="blog-card-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&q=80&w=600" alt="Equipamento" class="blog-card-img">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&q=80&w=600" alt="Equipamento" class="blog-card-img">
               <span class="blog-category-badge">Emergências</span>
             </div>
             <div class="card-content">
@@ -162,7 +170,7 @@
 
           <div class="card blog-card gs-stagger">
             <div class="blog-card-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1553688738-a278b9f063e0?auto=format&fit=crop&q=80&w=600" alt="Sala de exames" class="blog-card-img">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1553688738-a278b9f063e0?auto=format&fit=crop&q=80&w=600" alt="Sala de exames" class="blog-card-img">
               <span class="blog-category-badge">Cirurgia</span>
             </div>
             <div class="card-content">
@@ -177,7 +185,7 @@
 
           <div class="card blog-card gs-stagger">
             <div class="blog-card-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1584813470613-5b1c1cad3d69?auto=format&fit=crop&q=80&w=600" alt="Recepção" class="blog-card-img">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1584813470613-5b1c1cad3d69?auto=format&fit=crop&q=80&w=600" alt="Recepção" class="blog-card-img">
               <span class="blog-category-badge">Raças</span>
             </div>
             <div class="card-content">
@@ -202,10 +210,11 @@
             <div class="card-ico"><i class="ph-fill ph-envelope"></i></div>
             <h2 class="h2">Receba dicas direto no e-mail</h2>
             <p class="t2">Cadastre-se e receba mensalmente artigos exclusivos dos nossos veterinários, lembretes de vacinas e promoções especiais.</p>
-            <form class="newsletter-form" onsubmit="return false;">
-              <input type="email" placeholder="seu@email.com" class="form-input">
+            <form class="newsletter-form" data-demo-form novalidate>
+              <input type="email" placeholder="seu@email.com" class="form-input" name="email" autocomplete="email" aria-label="Seu e-mail" required>
               <button type="submit" class="btn btn-magnetic">Quero Receber</button>
             </form>
+            <p class="form-status" role="status" aria-live="polite"></p>
             <p class="t3" style="margin-top: 1rem;">Sem spam. Cancele quando quiser.</p>
           </div>
         </div>
@@ -228,26 +237,26 @@
         <div>
           <h4 style="font-weight: 700; color: var(--color-primary-dark); margin-bottom: 1.5rem;">Links Rápidos</h4>
           <ul style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <li><a href="#" class="t3">Início</a></li>
-            <li><a href="#" class="t3">Serviços</a></li>
-            <li><a href="#" class="t3">Sobre nós</a></li>
-            <li><a href="#" class="t3">Contato</a></li>
+            <li><a href="index.html" class="t3">Início</a></li>
+            <li><a href="servicos.html" class="t3">Serviços</a></li>
+            <li><a href="sobre.html" class="t3">Sobre nós</a></li>
+            <li><a href="contato.html" class="t3">Contato</a></li>
           </ul>
         </div>
         <div>
           <h4 style="font-weight: 700; color: var(--color-primary-dark); margin-bottom: 1.5rem;">Serviços</h4>
           <ul style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <li><a href="#" class="t3">Check-up</a></li>
-            <li><a href="#" class="t3">Vacinação</a></li>
-            <li><a href="#" class="t3">Odontologia</a></li>
-            <li><a href="#" class="t3">Cirurgia</a></li>
-            <li><a href="#" class="t3">Emergência</a></li>
+            <li><a href="servicos.html" class="t3">Check-up</a></li>
+            <li><a href="servicos.html" class="t3">Vacinação</a></li>
+            <li><a href="servicos.html" class="t3">Odontologia</a></li>
+            <li><a href="servicos.html" class="t3">Cirurgia</a></li>
+            <li><a href="contato.html" class="t3">Emergência</a></li>
           </ul>
         </div>
         <div>
           <h4 style="font-weight: 700; color: var(--color-primary-dark); margin-bottom: 1.5rem;">Ajuda & Suporte</h4>
           <ul style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <li><a href="#" class="t3">FAQ</a></li>
+            <li><a href="contato.html" class="t3">FAQ</a></li>
             <li><a href="#" class="t3">Termos & Condições</a></li>
             <li><a href="#" class="t3">Privacidade</a></li>
           </ul>
@@ -263,15 +272,34 @@
       </div>
       
       <div class="footer-bottom">
-        <p class="t3" style="font-size: 0.9rem;">&copy; 2026 Cimu Pet Healthcare. All rights reserved.</p>
+        <p class="t3" style="font-size: 0.9rem;">&copy; 2026 Cimu Pet Healthcare. Todos os direitos reservados.</p>
         <div class="footer-social" style="gap: 0.5rem;">
-          <a href="#" class="social-ico" style="width: 36px; height: 36px; font-size: 1.2rem; background: var(--color-bg); box-shadow: none;"><i class="ph-fill ph-instagram-logo"></i></a>
-          <a href="#" class="social-ico" style="width: 36px; height: 36px; font-size: 1.2rem; background: var(--color-bg); box-shadow: none;"><i class="ph-fill ph-facebook-logo"></i></a>
-          <a href="#" class="social-ico" style="width: 36px; height: 36px; font-size: 1.2rem; background: var(--color-bg); box-shadow: none;"><i class="ph-fill ph-twitter-logo"></i></a>
+          <a href="#" class="social-ico" aria-label="Instagram" style="width: 36px; height: 36px; font-size: 1.2rem; background: var(--color-bg); box-shadow: none;"><i class="ph-fill ph-instagram-logo" aria-hidden="true"></i></a>
+          <a href="#" class="social-ico" aria-label="Facebook" style="width: 36px; height: 36px; font-size: 1.2rem; background: var(--color-bg); box-shadow: none;"><i class="ph-fill ph-facebook-logo" aria-hidden="true"></i></a>
+          <a href="#" class="social-ico" aria-label="Twitter" style="width: 36px; height: 36px; font-size: 1.2rem; background: var(--color-bg); box-shadow: none;"><i class="ph-fill ph-twitter-logo" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
   </footer>
+
+  <nav class="mobile-bottom-nav" aria-label="Navegação rápida">
+    <a href="index.html" class="bottom-nav-item">
+      <i class="ph-bold ph-house"></i>
+      <span>Início</span>
+    </a>
+    <a href="servicos.html" class="bottom-nav-item">
+      <i class="ph-bold ph-stethoscope"></i>
+      <span>Serviços</span>
+    </a>
+    <a href="sobre.html" class="bottom-nav-item">
+      <i class="ph-bold ph-info"></i>
+      <span>Sobre</span>
+    </a>
+    <a href="contato.html" class="bottom-nav-item">
+      <i class="ph-bold ph-envelope-simple"></i>
+      <span>Contato</span>
+    </a>
+  </nav>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
