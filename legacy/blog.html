@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#EBEAE4" />
+  <meta name="theme-color" content="#EBEAE4" />
   <meta name="description" content="Artigos e dicas dos veterinários da Cimu sobre saúde, nutrição, prevenção e comportamento animal.">
   <title>Blog | Cimu — Saúde Animal em Foco</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Varela+Round&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css?v=14">
   <link rel="stylesheet" href="assets/pages.css?v=14">
+  <link rel="stylesheet" href="assets/enhance.css?v=14">
   <link rel="stylesheet" href="assets/enhance.css?v=14">
   <link rel="preconnect" href="https://unpkg.com" crossorigin>
   <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
@@ -66,7 +68,7 @@
     <section style="padding: 2rem 0; background: var(--color-surface); border-bottom: 1px solid var(--color-border);">
       <div class="container">
         <div class="blog-filters">
-          <button class="filter-btn filter-active" aria-pressed="true">Todos</button>
+          <button class="filter-btn filter-active" aria-pressed="true" aria-pressed="true">Todos</button>
           <button class="filter-btn" aria-pressed="false">Nutrição</button>
           <button class="filter-btn" aria-pressed="false">Prevenção</button>
           <button class="filter-btn" aria-pressed="false">Comportamento</button>
@@ -211,9 +213,10 @@
             <h2 class="h2">Receba dicas direto no e-mail</h2>
             <p class="t2">Cadastre-se e receba mensalmente artigos exclusivos dos nossos veterinários, lembretes de vacinas e promoções especiais.</p>
             <form class="newsletter-form" data-demo-form novalidate>
-              <input type="email" placeholder="seu@email.com" class="form-input" name="email" autocomplete="email" aria-label="Seu e-mail" required>
+              <input placeholder="seu@email.com" class="form-input" type="email" name="email" autocomplete="email" aria-label="Seu e-mail" required name="email" autocomplete="email" aria-label="Seu e-mail" required>
               <button type="submit" class="btn btn-magnetic">Quero Receber</button>
             </form>
+            <p class="form-status" role="status" aria-live="polite"></p>
             <p class="form-status" role="status" aria-live="polite"></p>
             <p class="t3" style="margin-top: 1rem;">Sem spam. Cancele quando quiser.</p>
           </div>
